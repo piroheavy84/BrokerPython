@@ -1,0 +1,5158 @@
+[
+    {
+        "id": 1,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "",
+            "descrizione": ""
+        },
+        "durata_min": 10,
+        "durata_max": 15,
+        "ltv_max": 50,
+        "spread": "0,40%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 2,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "",
+            "descrizione": ""
+        },
+        "durata_min": 10,
+        "durata_max": 15,
+        "ltv_max": 60,
+        "spread": "0,40%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 3,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "",
+            "descrizione": ""
+        },
+        "durata_min": 10,
+        "durata_max": 15,
+        "ltv_max": 70,
+        "spread": "0,40%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 4,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "",
+            "descrizione": ""
+        },
+        "durata_min": 10,
+        "durata_max": 15,
+        "ltv_max": 80,
+        "spread": "0,45%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 5,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "",
+            "descrizione": ""
+        },
+        "durata_min": 16,
+        "durata_max": 20,
+        "ltv_max": 50,
+        "spread": "0,40%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 6,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "",
+            "descrizione": ""
+        },
+        "durata_min": 16,
+        "durata_max": 20,
+        "ltv_max": 60,
+        "spread": "0,40%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 7,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "",
+            "descrizione": ""
+        },
+        "durata_min": 16,
+        "durata_max": 20,
+        "ltv_max": 70,
+        "spread": "0,40%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 8,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "",
+            "descrizione": ""
+        },
+        "durata_min": 16,
+        "durata_max": 20,
+        "ltv_max": 80,
+        "spread": "0,45%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 9,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "FISSO",
+            "descrizione": "FISSO"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 50,
+        "spread": "0,40%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 10,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "FISSO",
+            "descrizione": "FISSO"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 60,
+        "spread": "0,40%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 11,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "FISSO",
+            "descrizione": "FISSO"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 70,
+        "spread": "0,40%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 12,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "FISSO",
+            "descrizione": "FISSO"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 80,
+        "spread": "0,45%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 13,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "FISSO",
+            "descrizione": "FISSO"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 50,
+        "spread": "0,45%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 14,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "FISSO",
+            "descrizione": "FISSO"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 60,
+        "spread": "0,45%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 15,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "FISSO",
+            "descrizione": "FISSO"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 70,
+        "spread": "0,45%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 16,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "FISSO",
+            "descrizione": "FISSO"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 80,
+        "spread": "0,45%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 17,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "FISSO",
+            "descrizione": "FISSO"
+        },
+        "durata_min": 10,
+        "durata_max": 20,
+        "ltv_max": 50,
+        "spread": "0,60%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 18,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "FISSO",
+            "descrizione": "FISSO"
+        },
+        "durata_min": 10,
+        "durata_max": 20,
+        "ltv_max": 60,
+        "spread": "0,60%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 19,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "FISSO",
+            "descrizione": "FISSO"
+        },
+        "durata_min": 10,
+        "durata_max": 20,
+        "ltv_max": 70,
+        "spread": "0,60%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 20,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "FISSO",
+            "descrizione": "FISSO"
+        },
+        "durata_min": 10,
+        "durata_max": 20,
+        "ltv_max": 80,
+        "spread": "0,65%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 21,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE CON FLOOR",
+            "descrizione": "VARIABILE CON FLOOR"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 50,
+        "spread": "0,60%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 22,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE CON FLOOR",
+            "descrizione": "VARIABILE CON FLOOR"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 60,
+        "spread": "0,60%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 23,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE CON FLOOR",
+            "descrizione": "VARIABILE CON FLOOR"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 70,
+        "spread": "0,60%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 24,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE CON FLOOR",
+            "descrizione": "VARIABILE CON FLOOR"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 80,
+        "spread": "0,65%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 25,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE CON FLOOR",
+            "descrizione": "VARIABILE CON FLOOR"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 50,
+        "spread": "0,65%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 26,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE CON FLOOR",
+            "descrizione": "VARIABILE CON FLOOR"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 60,
+        "spread": "0,65%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 27,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE CON FLOOR",
+            "descrizione": "VARIABILE CON FLOOR"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 70,
+        "spread": "0,65%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 28,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE CON FLOOR",
+            "descrizione": "VARIABILE CON FLOOR"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 80,
+        "spread": "0,65%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 29,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "",
+            "descrizione": ""
+        },
+        "durata_min": 10,
+        "durata_max": 20,
+        "ltv_max": 50,
+        "spread": "0,90%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 30,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "",
+            "descrizione": ""
+        },
+        "durata_min": 10,
+        "durata_max": 20,
+        "ltv_max": 60,
+        "spread": "0,90%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 31,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "",
+            "descrizione": ""
+        },
+        "durata_min": 10,
+        "durata_max": 20,
+        "ltv_max": 70,
+        "spread": "0,90%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 32,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "",
+            "descrizione": ""
+        },
+        "durata_min": 10,
+        "durata_max": 20,
+        "ltv_max": 80,
+        "spread": "0,95%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 33,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE",
+            "descrizione": "VARIABILE"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 50,
+        "spread": "0,90%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 34,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE",
+            "descrizione": "VARIABILE"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 60,
+        "spread": "0,90%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 35,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE",
+            "descrizione": "VARIABILE"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 70,
+        "spread": "0,90%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 36,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE",
+            "descrizione": "VARIABILE"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 80,
+        "spread": "0,95%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 37,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE",
+            "descrizione": "VARIABILE"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 50,
+        "spread": "0,95%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 38,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE",
+            "descrizione": "VARIABILE"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 60,
+        "spread": "0,95%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 39,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE",
+            "descrizione": "VARIABILE"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 70,
+        "spread": "0,95%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 40,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE",
+            "descrizione": "VARIABILE"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 80,
+        "spread": "0,95%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 41,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE",
+            "descrizione": "VARIABILE"
+        },
+        "durata_min": 10,
+        "durata_max": 20,
+        "ltv_max": 50,
+        "spread": "0,60%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 42,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE",
+            "descrizione": "VARIABILE"
+        },
+        "durata_min": 10,
+        "durata_max": 20,
+        "ltv_max": 60,
+        "spread": "0,60%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 43,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE",
+            "descrizione": "VARIABILE"
+        },
+        "durata_min": 10,
+        "durata_max": 20,
+        "ltv_max": 70,
+        "spread": "0,60%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 44,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE",
+            "descrizione": "VARIABILE"
+        },
+        "durata_min": 10,
+        "durata_max": 20,
+        "ltv_max": 80,
+        "spread": "0,65%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 45,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "RATA PROTETTA",
+            "descrizione": "RATA PROTETTA"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 50,
+        "spread": "0,60%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 46,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "RATA PROTETTA",
+            "descrizione": "RATA PROTETTA"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 60,
+        "spread": "0,60%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 47,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "RATA PROTETTA",
+            "descrizione": "RATA PROTETTA"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 70,
+        "spread": "0,60%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 48,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "RATA PROTETTA",
+            "descrizione": "RATA PROTETTA"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 80,
+        "spread": "0,65%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 49,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "RATA PROTETTA",
+            "descrizione": "RATA PROTETTA"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 50,
+        "spread": "0,65%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 50,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "RATA PROTETTA",
+            "descrizione": "RATA PROTETTA"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 60,
+        "spread": "0,65%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 51,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "RATA PROTETTA",
+            "descrizione": "RATA PROTETTA"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 70,
+        "spread": "0,65%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 52,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/05/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "RATA PROTETTA",
+            "descrizione": "RATA PROTETTA"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 80,
+        "spread": "0,65%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/05/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 4,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 53,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "",
+            "descrizione": ""
+        },
+        "durata_min": 10,
+        "durata_max": 15,
+        "ltv_max": 50,
+        "spread": "0,60%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 54,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "",
+            "descrizione": ""
+        },
+        "durata_min": 10,
+        "durata_max": 15,
+        "ltv_max": 60,
+        "spread": "0,60%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 55,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "",
+            "descrizione": ""
+        },
+        "durata_min": 10,
+        "durata_max": 15,
+        "ltv_max": 70,
+        "spread": "0,60%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 56,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "",
+            "descrizione": ""
+        },
+        "durata_min": 10,
+        "durata_max": 15,
+        "ltv_max": 80,
+        "spread": "0,65%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 57,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "",
+            "descrizione": ""
+        },
+        "durata_min": 16,
+        "durata_max": 20,
+        "ltv_max": 50,
+        "spread": "0,60%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 58,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "",
+            "descrizione": ""
+        },
+        "durata_min": 16,
+        "durata_max": 20,
+        "ltv_max": 60,
+        "spread": "0,60%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 59,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "",
+            "descrizione": ""
+        },
+        "durata_min": 16,
+        "durata_max": 20,
+        "ltv_max": 70,
+        "spread": "0,60%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 60,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "",
+            "descrizione": ""
+        },
+        "durata_min": 16,
+        "durata_max": 20,
+        "ltv_max": 80,
+        "spread": "0,65%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 61,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "FISSO",
+            "descrizione": "FISSO"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 50,
+        "spread": "0,60%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 62,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "FISSO",
+            "descrizione": "FISSO"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 60,
+        "spread": "0,60%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 63,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "FISSO",
+            "descrizione": "FISSO"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 70,
+        "spread": "0,60%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 64,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "FISSO",
+            "descrizione": "FISSO"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 80,
+        "spread": "0,65%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 65,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "FISSO",
+            "descrizione": "FISSO"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 50,
+        "spread": "0,65%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 66,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "FISSO",
+            "descrizione": "FISSO"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 60,
+        "spread": "0,65%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 67,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "FISSO",
+            "descrizione": "FISSO"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 70,
+        "spread": "0,65%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 68,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "FISSO",
+            "descrizione": "FISSO"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 80,
+        "spread": "0,65%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 69,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "FISSO",
+            "descrizione": "FISSO"
+        },
+        "durata_min": 10,
+        "durata_max": 20,
+        "ltv_max": 50,
+        "spread": "0,80%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 70,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "FISSO",
+            "descrizione": "FISSO"
+        },
+        "durata_min": 10,
+        "durata_max": 20,
+        "ltv_max": 60,
+        "spread": "0,80%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 71,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "FISSO",
+            "descrizione": "FISSO"
+        },
+        "durata_min": 10,
+        "durata_max": 20,
+        "ltv_max": 70,
+        "spread": "0,80%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 72,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "FISSO",
+            "descrizione": "FISSO"
+        },
+        "durata_min": 10,
+        "durata_max": 20,
+        "ltv_max": 80,
+        "spread": "0,85%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 73,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE CON FLOOR",
+            "descrizione": "VARIABILE CON FLOOR"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 50,
+        "spread": "0,80%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 74,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE CON FLOOR",
+            "descrizione": "VARIABILE CON FLOOR"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 60,
+        "spread": "0,80%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 75,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE CON FLOOR",
+            "descrizione": "VARIABILE CON FLOOR"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 70,
+        "spread": "0,80%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 76,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE CON FLOOR",
+            "descrizione": "VARIABILE CON FLOOR"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 80,
+        "spread": "0,85%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 77,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE CON FLOOR",
+            "descrizione": "VARIABILE CON FLOOR"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 50,
+        "spread": "0,85%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 78,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE CON FLOOR",
+            "descrizione": "VARIABILE CON FLOOR"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 60,
+        "spread": "0,85%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 79,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE CON FLOOR",
+            "descrizione": "VARIABILE CON FLOOR"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 70,
+        "spread": "0,85%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 80,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE CON FLOOR",
+            "descrizione": "VARIABILE CON FLOOR"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 80,
+        "spread": "0,85%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 81,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE CON FLOOR",
+            "descrizione": "VARIABILE CON FLOOR"
+        },
+        "durata_min": 10,
+        "durata_max": 20,
+        "ltv_max": 50,
+        "spread": "1,10%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 82,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE CON FLOOR",
+            "descrizione": "VARIABILE CON FLOOR"
+        },
+        "durata_min": 10,
+        "durata_max": 20,
+        "ltv_max": 60,
+        "spread": "1,10%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 83,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE CON FLOOR",
+            "descrizione": "VARIABILE CON FLOOR"
+        },
+        "durata_min": 10,
+        "durata_max": 20,
+        "ltv_max": 70,
+        "spread": "1,10%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 84,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE CON FLOOR",
+            "descrizione": "VARIABILE CON FLOOR"
+        },
+        "durata_min": 10,
+        "durata_max": 20,
+        "ltv_max": 80,
+        "spread": "1,15%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 85,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE",
+            "descrizione": "VARIABILE"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 50,
+        "spread": "1,10%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 86,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE",
+            "descrizione": "VARIABILE"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 60,
+        "spread": "1,10%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 87,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE",
+            "descrizione": "VARIABILE"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 70,
+        "spread": "1,10%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 88,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE",
+            "descrizione": "VARIABILE"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 80,
+        "spread": "1,15%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 89,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE",
+            "descrizione": "VARIABILE"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 50,
+        "spread": "1,15%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 90,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE",
+            "descrizione": "VARIABILE"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 60,
+        "spread": "1,15%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 91,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE",
+            "descrizione": "VARIABILE"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 70,
+        "spread": "1,15%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 92,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE",
+            "descrizione": "VARIABILE"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 80,
+        "spread": "1,15%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 93,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE",
+            "descrizione": "VARIABILE"
+        },
+        "durata_min": 10,
+        "durata_max": 20,
+        "ltv_max": 50,
+        "spread": "0,80%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 94,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE",
+            "descrizione": "VARIABILE"
+        },
+        "durata_min": 10,
+        "durata_max": 20,
+        "ltv_max": 60,
+        "spread": "0,80%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 95,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE",
+            "descrizione": "VARIABILE"
+        },
+        "durata_min": 10,
+        "durata_max": 20,
+        "ltv_max": 70,
+        "spread": "0,80%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 96,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE",
+            "descrizione": "VARIABILE"
+        },
+        "durata_min": 10,
+        "durata_max": 20,
+        "ltv_max": 80,
+        "spread": "0,85%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 97,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "RATA PROTETTA",
+            "descrizione": "RATA PROTETTA"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 50,
+        "spread": "0,80%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 98,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "RATA PROTETTA",
+            "descrizione": "RATA PROTETTA"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 60,
+        "spread": "0,80%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 99,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "RATA PROTETTA",
+            "descrizione": "RATA PROTETTA"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 70,
+        "spread": "0,80%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 100,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "RATA PROTETTA",
+            "descrizione": "RATA PROTETTA"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 80,
+        "spread": "0,85%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 101,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "RATA PROTETTA",
+            "descrizione": "RATA PROTETTA"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 50,
+        "spread": "0,85%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 102,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "RATA PROTETTA",
+            "descrizione": "RATA PROTETTA"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 60,
+        "spread": "0,85%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 103,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "RATA PROTETTA",
+            "descrizione": "RATA PROTETTA"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 70,
+        "spread": "0,85%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 104,
+        "tipo_listino": "IN CORSO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/06/2026",
+        "stipula_entro": "31/08/2026",
+        "finalita": [
+            "SURROGA",
+            "IMPORTO MIN 75.000€"
+        ],
+        "tasso": {
+            "tipo": "RATA PROTETTA",
+            "descrizione": "RATA PROTETTA"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 80,
+        "spread": "0,85%",
+        "date": {
+            "tipo_listino": "IN CORSO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/06/2026"
+            },
+            "stipula_entro": "31/08/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 7,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 105,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "",
+            "descrizione": ""
+        },
+        "durata_min": 10,
+        "durata_max": 15,
+        "ltv_max": 50,
+        "spread": "0,40%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 106,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "",
+            "descrizione": ""
+        },
+        "durata_min": 10,
+        "durata_max": 15,
+        "ltv_max": 60,
+        "spread": "0,40%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 107,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "",
+            "descrizione": ""
+        },
+        "durata_min": 10,
+        "durata_max": 15,
+        "ltv_max": 70,
+        "spread": "0,40%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 108,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "",
+            "descrizione": ""
+        },
+        "durata_min": 10,
+        "durata_max": 15,
+        "ltv_max": 80,
+        "spread": "0,40%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 109,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "",
+            "descrizione": ""
+        },
+        "durata_min": 16,
+        "durata_max": 20,
+        "ltv_max": 50,
+        "spread": "0,40%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 110,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "",
+            "descrizione": ""
+        },
+        "durata_min": 16,
+        "durata_max": 20,
+        "ltv_max": 60,
+        "spread": "0,40%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 111,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "",
+            "descrizione": ""
+        },
+        "durata_min": 16,
+        "durata_max": 20,
+        "ltv_max": 70,
+        "spread": "0,40%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 112,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "",
+            "descrizione": ""
+        },
+        "durata_min": 16,
+        "durata_max": 20,
+        "ltv_max": 80,
+        "spread": "0,40%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 113,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "FISSO",
+            "descrizione": "FISSO"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 50,
+        "spread": "0,40%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 114,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "FISSO",
+            "descrizione": "FISSO"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 60,
+        "spread": "0,40%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 115,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "FISSO",
+            "descrizione": "FISSO"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 70,
+        "spread": "0,40%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 116,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "FISSO",
+            "descrizione": "FISSO"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 80,
+        "spread": "0,40%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 117,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "FISSO",
+            "descrizione": "FISSO"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 50,
+        "spread": "0,45%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 118,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "FISSO",
+            "descrizione": "FISSO"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 60,
+        "spread": "0,45%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 119,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "FISSO",
+            "descrizione": "FISSO"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 70,
+        "spread": "0,45%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 120,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "FISSO",
+            "descrizione": "FISSO"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 80,
+        "spread": "0,45%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 121,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "FISSO",
+            "descrizione": "FISSO"
+        },
+        "durata_min": 10,
+        "durata_max": 20,
+        "ltv_max": 50,
+        "spread": "0,60%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 122,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "FISSO",
+            "descrizione": "FISSO"
+        },
+        "durata_min": 10,
+        "durata_max": 20,
+        "ltv_max": 60,
+        "spread": "0,60%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 123,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "FISSO",
+            "descrizione": "FISSO"
+        },
+        "durata_min": 10,
+        "durata_max": 20,
+        "ltv_max": 70,
+        "spread": "0,60%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 124,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "FISSO",
+            "descrizione": "FISSO"
+        },
+        "durata_min": 10,
+        "durata_max": 20,
+        "ltv_max": 80,
+        "spread": "0,65%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 125,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE CON FLOOR",
+            "descrizione": "VARIABILE CON FLOOR"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 50,
+        "spread": "0,60%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 126,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE CON FLOOR",
+            "descrizione": "VARIABILE CON FLOOR"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 60,
+        "spread": "0,60%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 127,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE CON FLOOR",
+            "descrizione": "VARIABILE CON FLOOR"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 70,
+        "spread": "0,60%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 128,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE CON FLOOR",
+            "descrizione": "VARIABILE CON FLOOR"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 80,
+        "spread": "0,65%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 129,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE CON FLOOR",
+            "descrizione": "VARIABILE CON FLOOR"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 50,
+        "spread": "0,65%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 130,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE CON FLOOR",
+            "descrizione": "VARIABILE CON FLOOR"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 60,
+        "spread": "0,65%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 131,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE CON FLOOR",
+            "descrizione": "VARIABILE CON FLOOR"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 70,
+        "spread": "0,65%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 132,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "ACQUISTO",
+            "ACQUISTO + SOSTITUZIONE",
+            "ACQUISTO + RISTRUTTURAZIONE 2 CASA"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE CON FLOOR",
+            "descrizione": "VARIABILE CON FLOOR"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 80,
+        "spread": "0,65%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 133,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "",
+            "descrizione": ""
+        },
+        "durata_min": 10,
+        "durata_max": 20,
+        "ltv_max": 50,
+        "spread": "0,90%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 134,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "",
+            "descrizione": ""
+        },
+        "durata_min": 10,
+        "durata_max": 20,
+        "ltv_max": 60,
+        "spread": "0,90%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 135,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "",
+            "descrizione": ""
+        },
+        "durata_min": 10,
+        "durata_max": 20,
+        "ltv_max": 70,
+        "spread": "0,90%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 136,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "",
+            "descrizione": ""
+        },
+        "durata_min": 10,
+        "durata_max": 20,
+        "ltv_max": 80,
+        "spread": "0,95%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 137,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE",
+            "descrizione": "VARIABILE"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 50,
+        "spread": "0,90%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 138,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE",
+            "descrizione": "VARIABILE"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 60,
+        "spread": "0,90%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 139,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE",
+            "descrizione": "VARIABILE"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 70,
+        "spread": "0,90%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 140,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE",
+            "descrizione": "VARIABILE"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 80,
+        "spread": "0,95%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 141,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE",
+            "descrizione": "VARIABILE"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 50,
+        "spread": "0,95%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 142,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE",
+            "descrizione": "VARIABILE"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 60,
+        "spread": "0,95%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 143,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE",
+            "descrizione": "VARIABILE"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 70,
+        "spread": "0,95%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 144,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE",
+            "descrizione": "VARIABILE"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 80,
+        "spread": "0,95%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 145,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE",
+            "descrizione": "VARIABILE"
+        },
+        "durata_min": 10,
+        "durata_max": 20,
+        "ltv_max": 50,
+        "spread": "0,60%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 146,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE",
+            "descrizione": "VARIABILE"
+        },
+        "durata_min": 10,
+        "durata_max": 20,
+        "ltv_max": 60,
+        "spread": "0,60%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 147,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE",
+            "descrizione": "VARIABILE"
+        },
+        "durata_min": 10,
+        "durata_max": 20,
+        "ltv_max": 70,
+        "spread": "0,60%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 148,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "VARIABILE",
+            "descrizione": "VARIABILE"
+        },
+        "durata_min": 10,
+        "durata_max": 20,
+        "ltv_max": 80,
+        "spread": "0,65%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 149,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "RATA PROTETTA",
+            "descrizione": "RATA PROTETTA"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 50,
+        "spread": "0,60%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 150,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "RATA PROTETTA",
+            "descrizione": "RATA PROTETTA"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 60,
+        "spread": "0,60%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 151,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "RATA PROTETTA",
+            "descrizione": "RATA PROTETTA"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 70,
+        "spread": "0,60%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 152,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "RATA PROTETTA",
+            "descrizione": "RATA PROTETTA"
+        },
+        "durata_min": 21,
+        "durata_max": 25,
+        "ltv_max": 80,
+        "spread": "0,65%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 153,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "RATA PROTETTA",
+            "descrizione": "RATA PROTETTA"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 50,
+        "spread": "0,65%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 154,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "RATA PROTETTA",
+            "descrizione": "RATA PROTETTA"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 60,
+        "spread": "0,65%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 155,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "RATA PROTETTA",
+            "descrizione": "RATA PROTETTA"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 70,
+        "spread": "0,65%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    },
+    {
+        "id": 156,
+        "tipo_listino": "MAGAZZINO",
+        "canalizzazione_da": "01/01/26",
+        "canalizzazione_a": "30/04/2026",
+        "stipula_entro": "30/06/2026",
+        "finalita": [
+            "DISPONIBILE PER  GRUPPO 2)"
+        ],
+        "tasso": {
+            "tipo": "RATA PROTETTA",
+            "descrizione": "RATA PROTETTA"
+        },
+        "durata_min": 26,
+        "durata_max": 30,
+        "ltv_max": 80,
+        "spread": "0,65%",
+        "date": {
+            "tipo_listino": "MAGAZZINO",
+            "canalizzazione": {
+                "dal": "01/01/26",
+                "al": "30/04/2026"
+            },
+            "stipula_entro": "30/06/2026"
+        },
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "pagina": 10,
+        "tasso_esplicito": false,
+        "indice_riferimento": null,
+        "tasso_finito_pdf": null
+    }
+]

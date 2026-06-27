@@ -1,0 +1,12 @@
+[
+    {
+        "banca": "Che Banca!",
+        "pdf": "Chebanca! offerta_retrocessioni 06_2026.pdf",
+        "tasso_esplicito": false,
+        "regole_valide": 156,
+        "regole_errori": 0,
+        "database": "output/che_banca!_index.json",
+        "errori": "output/che_banca!_errors.json",
+        "last_updated": "23/06/2026 16:17"
+    }
+]

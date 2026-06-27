@@ -1,0 +1,131 @@
+{
+    "eurirs": [
+        {
+            "descrizione": "IRS 1A",
+            "fixing": "2,80%",
+            "fixing_value": 2.8,
+            "data_fixing": "22/06/2026",
+            "fonte": "manuale Sole24Ore"
+        },
+        {
+            "descrizione": "IRS 2A",
+            "fixing": "2,85%",
+            "fixing_value": 2.85,
+            "data_fixing": "22/06/2026",
+            "fonte": "manuale Sole24Ore"
+        },
+        {
+            "descrizione": "IRS 3A",
+            "fixing": "2,84%",
+            "fixing_value": 2.84,
+            "data_fixing": "22/06/2026",
+            "fonte": "manuale Sole24Ore"
+        },
+        {
+            "descrizione": "IRS 4A",
+            "fixing": "2,85%",
+            "fixing_value": 2.85,
+            "data_fixing": "22/06/2026",
+            "fonte": "manuale Sole24Ore"
+        },
+        {
+            "descrizione": "IRS 5A",
+            "fixing": "2,87%",
+            "fixing_value": 2.87,
+            "data_fixing": "22/06/2026",
+            "fonte": "manuale Sole24Ore"
+        },
+        {
+            "descrizione": "IRS 6A",
+            "fixing": "2,90%",
+            "fixing_value": 2.9,
+            "data_fixing": "22/06/2026",
+            "fonte": "manuale Sole24Ore"
+        },
+        {
+            "descrizione": "IRS 7A",
+            "fixing": "2,93%",
+            "fixing_value": 2.93,
+            "data_fixing": "22/06/2026",
+            "fonte": "manuale Sole24Ore"
+        },
+        {
+            "descrizione": "IRS 8A",
+            "fixing": "2,97%",
+            "fixing_value": 2.97,
+            "data_fixing": "22/06/2026",
+            "fonte": "manuale Sole24Ore"
+        },
+        {
+            "descrizione": "IRS 9A",
+            "fixing": "3,01%",
+            "fixing_value": 3.01,
+            "data_fixing": "22/06/2026",
+            "fonte": "manuale Sole24Ore"
+        },
+        {
+            "descrizione": "IRS 10A",
+            "fixing": "3,05%",
+            "fixing_value": 3.05,
+            "data_fixing": "22/06/2026",
+            "fonte": "manuale Sole24Ore"
+        },
+        {
+            "descrizione": "IRS 11A",
+            "fixing": "3,08%",
+            "fixing_value": 3.08,
+            "data_fixing": "22/06/2026",
+            "fonte": "manuale Sole24Ore"
+        },
+        {
+            "descrizione": "IRS 12A",
+            "fixing": "3,12%",
+            "fixing_value": 3.12,
+            "data_fixing": "22/06/2026",
+            "fonte": "manuale Sole24Ore"
+        },
+        {
+            "descrizione": "IRS 15A",
+            "fixing": "3,20%",
+            "fixing_value": 3.2,
+            "data_fixing": "22/06/2026",
+            "fonte": "manuale Sole24Ore"
+        },
+        {
+            "descrizione": "IRS 20A",
+            "fixing": "3,27%",
+            "fixing_value": 3.27,
+            "data_fixing": "22/06/2026",
+            "fonte": "manuale Sole24Ore"
+        },
+        {
+            "descrizione": "IRS 25A",
+            "fixing": "3,25%",
+            "fixing_value": 3.25,
+            "data_fixing": "22/06/2026",
+            "fonte": "manuale Sole24Ore"
+        },
+        {
+            "descrizione": "IRS 30A",
+            "fixing": "3,21%",
+            "fixing_value": 3.21,
+            "data_fixing": "22/06/2026",
+            "fonte": "manuale Sole24Ore"
+        },
+        {
+            "descrizione": "IRS 40A",
+            "fixing": "3,09%",
+            "fixing_value": 3.09,
+            "data_fixing": "22/06/2026",
+            "fonte": "manuale Sole24Ore"
+        },
+        {
+            "descrizione": "IRS 50A",
+            "fixing": "2,95%",
+            "fixing_value": 2.95,
+            "data_fixing": "22/06/2026",
+            "fonte": "manuale Sole24Ore"
+        }
+    ],
+    "eurirs_last_updated": "22/06/2026 15:40"
+}

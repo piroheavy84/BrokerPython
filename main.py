@@ -5,13 +5,44 @@ from services.rule_cleaner import RuleCleaner
 from services.json_database import JsonDatabase
 from services.rule_validator import RuleValidator
 from services.error_database import ErrorDatabase
+from services.bank_memory_service import BankMemoryService
 
-# =========================================
+from models.pdf_import_options import PdfImportOptions
+
+
+# ==========================================
+# CONFIGURAZIONE IMPORT PDF
+# ==========================================
+
+print()
+print("===================================")
+print("KIRON PDF ENGINE - IMPORT PDF")
+print("===================================")
+print()
+
+banca = input("Nome banca: ").strip()
+
+pdf_file = input("Nome file PDF in input/: ").strip()
+
+tasso_esplicito_input = input(
+    "Il PDF contiene un tasso finito esplicito? (s/n): "
+).strip().lower()
+
+tasso_esplicito = tasso_esplicito_input == "s"
+
+options = PdfImportOptions(
+    banca=banca,
+    pdf=pdf_file,
+    tasso_esplicito=tasso_esplicito
+)
+
+
+# ==========================================
+# AVVIO SERVIZI
+# ==========================================
 
 reader = PdfDocumentReader(
-
-    "input/Chebanca!_06_2026.pdf"
-
+    f"input/{options.pdf}"
 )
 
 analyzer = PageAnalyzer()
@@ -26,22 +57,38 @@ validator = RuleValidator()
 
 error_db = ErrorDatabase()
 
+bank_memory_service = BankMemoryService()
+
+
+# ==========================================
+# MEMORIA BANCA
+# ==========================================
+
+bank_memory = bank_memory_service.load_bank_memory(
+    options.banca
+)
+
+
+# ==========================================
+# LETTURA PDF
+# ==========================================
+
 documento = reader.read_document()
 
 rules_ok = []
 
 rules_error = []
 
-# =========================================
+
+# ==========================================
+# ELABORAZIONE PAGINE
+# ==========================================
 
 for pagina in documento:
 
     model = analyzer.analyze(
-
         pagina["pagina"],
-
         pagina["blocchi"]
-
     )
 
     if len(model.header) > 0:
@@ -55,56 +102,91 @@ for pagina in documento:
     for blocco in model.products:
 
         rules = builder.build(
-
             header,
-
             blocco
-
         )
 
         for rule in rules:
 
-            rule = cleaner.clean(rule)
+            rule = cleaner.clean(
+                rule
+            )
 
-            rule["banca"] = "CheBanca"
+            rule["banca"] = options.banca
 
-            rule["pdf"] = "CheBanca!_06_2026.pdf"
+            rule["pdf"] = options.pdf
 
             rule["pagina"] = model.page
 
-            errori = validator.validate(rule)
+            rule["tasso_esplicito"] = options.tasso_esplicito
 
-            if len(errori) == 0:
+            rule["indice_riferimento"] = None
 
-                rules_ok.append(rule)
+            rule["bank_memory"] = bank_memory
+
+            if options.tasso_esplicito:
+
+                rule["tasso_finito_pdf"] = rule.get(
+                    "spread",
+                    None
+                )
 
             else:
 
-                rules_error.append({
+                rule["tasso_finito_pdf"] = None
 
-                    "rule": rule,
+            errori = validator.validate(
+                rule
+            )
 
-                    "errori": errori
+            if len(errori) == 0:
 
-                })
+                rules_ok.append(
+                    rule
+                )
 
-# =========================================
+            else:
+
+                rules_error.append(
+                    {
+                        "rule": rule,
+                        "errori": errori
+                    }
+                )
+
+
+# ==========================================
+# SALVATAGGIO
+# ==========================================
+
+nome_output = options.banca.lower().replace(
+    " ",
+    "_"
+)
+
+database_path = f"output/{nome_output}_index.json"
+
+errors_path = f"output/{nome_output}_errors.json"
 
 database.save(
-
     rules_ok,
-
-    "output/chebanca_index.json"
-
+    database_path
 )
 
 error_db.save(
-
     rules_error,
-
-    "output/chebanca_errors.json"
-
+    errors_path
 )
+
+bank_memory_service.save_bank_memory(
+    options.banca,
+    bank_memory
+)
+
+
+# ==========================================
+# REPORT
+# ==========================================
 
 print()
 
@@ -116,39 +198,27 @@ print("===================================")
 
 print()
 
-print(
+print("Banca:", options.banca)
 
-    "Regole valide:",
+print("PDF:", options.pdf)
 
-    len(rules_ok)
-
-)
-
-print(
-
-    "Regole con errori:",
-
-    len(rules_error)
-
-)
+print("Tasso esplicito:", options.tasso_esplicito)
 
 print()
 
-print(
+print("Memoria banca caricata:", options.banca)
 
-    "Database:",
+print()
 
-    "output/chebanca_index.json"
+print("Regole valide:", len(rules_ok))
 
-)
+print("Regole con errori:", len(rules_error))
 
-print(
+print()
 
-    "Errori:",
+print("Database:", database_path)
 
-    "output/chebanca_errors.json"
-
-)
+print("Errori:", errors_path)
 
 print()
 
