@@ -1,54 +1,76 @@
 class BlockClassifier:
 
+    HEADER_PATTERNS = [
+        "LISTINO IN CORSO",
+        "OFFERTA CHEBANCA",
+        "CANALIZZAZIONI",
+        "STIPULE ENTRO",
+    ]
+
+    PRODUCT_PATTERNS = [
+        "FINALITA",
+        "FINALITÀ",
+        "LTV",
+        "SPREAD",
+    ]
+
+    INFO_PATTERNS = [
+        "RETROCESS",
+        "PROVVIG",
+        "ISTRUTTORIA",
+        "PERIZIA",
+    ]
+
     def classify(self, blocco):
 
-        testo = " ".join(blocco).upper()
+        testo = self._normalize(
+            blocco
+        )
 
-        # -----------------------------
-        # HEADER
-        # -----------------------------
-
-        if "LISTINO IN CORSO" in testo:
+        if self._matches(
+            testo,
+            self.HEADER_PATTERNS
+        ):
             return "HEADER"
 
-        if "OFFERTA CHEBANCA" in testo:
-            return "HEADER"
-
-        if "CANALIZZAZIONI" in testo:
-            return "HEADER"
-
-        if "STIPULE ENTRO" in testo:
-            return "HEADER"
-
-        # -----------------------------
-        # PRODOTTO
-        # -----------------------------
-
-        if "FINALITA" in testo:
+        if self._matches(
+            testo,
+            self.PRODUCT_PATTERNS
+        ):
             return "PRODOTTO"
 
-        if "LTV" in testo:
-            return "PRODOTTO"
-
-        if "SPREAD" in testo:
-            return "PRODOTTO"
-
-        # -----------------------------
-        # INFO
-        # -----------------------------
-
-        if "RETROCESS" in testo:
+        if self._matches(
+            testo,
+            self.INFO_PATTERNS
+        ):
             return "INFO"
-
-        if "PROVVIG" in testo:
-            return "INFO"
-
-        if "ISTRUTTORIA" in testo:
-            return "INFO"
-
-        if "PERIZIA" in testo:
-            return "INFO"
-
-        # -----------------------------
 
         return "UNKNOWN"
+
+    def _normalize(
+        self,
+        blocco
+    ):
+
+        if isinstance(blocco, list):
+            text = " ".join(
+                str(item)
+                for item in blocco
+            )
+        else:
+            text = str(blocco)
+
+        return text.upper().strip()
+
+    def _matches(
+        self,
+        text,
+        patterns
+    ):
+
+        for pattern in patterns:
+
+            if pattern in text:
+                return True
+
+        return False
