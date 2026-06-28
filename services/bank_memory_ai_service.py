@@ -1,4 +1,33 @@
+from domain.extracted_rule_collection import ExtractedRuleCollection
+from services.ai_prompt_builder import AIPromptBuilder
+from services.ai_rule_extractor import AIRuleExtractor
+
+
 class BankMemoryAIService:
+
+    def __init__(self):
+        self.prompt_builder = AIPromptBuilder()
+        self.rule_extractor = AIRuleExtractor()
+
+    def build_rule_prompt(
+        self,
+        document_name: str,
+        page_number: int,
+        page_text: str,
+    ) -> str:
+        return self.prompt_builder.build_rule_extraction_prompt(
+            document_name=document_name,
+            page_number=page_number,
+            page_text=page_text,
+        )
+
+    def extract_rules_from_ai_response(
+        self,
+        ai_response: dict,
+    ) -> ExtractedRuleCollection:
+        return self.rule_extractor.extract(
+            ai_response
+        )
 
     def compare_memory(
         self,
