@@ -1,17 +1,12 @@
 class Mortgage:
 
     def __init__(
-
         self,
-
         importo,
-
         durata,
-
         finalita,
-
-        tasso
-
+        tasso,
+        data_rogito=None
     ):
 
         self.importo = importo
@@ -21,3 +16,5 @@ class Mortgage:
         self.finalita = finalita
 
         self.tasso = tasso
+
+        self.data_rogito = data_rogito
