@@ -10,11 +10,7 @@ class Mortgage:
     ):
 
         self.importo = importo
-
         self.durata = durata
-
         self.finalita = finalita
-
         self.tasso = tasso
-
         self.data_rogito = data_rogito
