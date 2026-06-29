@@ -19,7 +19,6 @@ class PageKnowledgeBuilder:
         knowledge = PageKnowledge()
 
         knowledge.page = page_number
-
         knowledge.raw_text = raw_text
 
         if len(header_blocks) > 0:
@@ -29,6 +28,10 @@ class PageKnowledgeBuilder:
             )
 
         knowledge.products = product_rules
+
+        knowledge.market_indexes = self._extract_market_indexes(
+            raw_text
+        )
 
         knowledge.conditions = self._extract_conditions(
             raw_text
@@ -44,6 +47,42 @@ class PageKnowledgeBuilder:
 
         return knowledge
 
+    def _extract_market_indexes(
+        self,
+        text
+    ):
+
+        indexes = []
+
+        lower = text.lower()
+
+        if "euribor 3 mesi" in lower:
+
+            indexes.append(
+                {
+                    "name": "EURIBOR",
+                    "tenor": "3 mesi",
+                    "source_text": self._find_line(
+                        text,
+                        "euribor"
+                    )
+                }
+            )
+
+        if "irs" in lower:
+
+            indexes.append(
+                {
+                    "name": "IRS",
+                    "source_text": self._find_line(
+                        text,
+                        "irs"
+                    )
+                }
+            )
+
+        return indexes
+
     def _extract_conditions(
         self,
         text
@@ -53,24 +92,51 @@ class PageKnowledgeBuilder:
 
         lower = text.lower()
 
-        if "euribor 3 mesi" in lower:
+        if "cap" in lower:
 
             conditions.append(
                 {
-                    "type": "market_index",
-                    "name": "EURIBOR",
-                    "tenor": "3 mesi",
-                    "source_text": "Euribor 3 mesi"
+                    "type": "CAP",
+                    "source_text": self._find_line(
+                        text,
+                        "cap"
+                    )
                 }
             )
 
-        if "irs" in lower:
+        if "floor" in lower:
 
             conditions.append(
                 {
-                    "type": "market_index",
-                    "name": "IRS",
-                    "source_text": "IRS"
+                    "type": "FLOOR",
+                    "source_text": self._find_line(
+                        text,
+                        "floor"
+                    )
+                }
+            )
+
+        if "taeg" in lower:
+
+            conditions.append(
+                {
+                    "type": "TAEG",
+                    "source_text": self._find_line(
+                        text,
+                        "taeg"
+                    )
+                }
+            )
+
+        if "tan" in lower:
+
+            conditions.append(
+                {
+                    "type": "TAN",
+                    "source_text": self._find_line(
+                        text,
+                        "tan"
+                    )
                 }
             )
 
@@ -89,11 +155,10 @@ class PageKnowledgeBuilder:
 
             costs.append(
                 {
-                    "type": "istruttoria",
-                    "description": "Spese di istruttoria presenti nella pagina",
+                    "type": "ISTRUTTORIA",
                     "source_text": self._find_line(
                         text,
-                        "Spese di istruttoria"
+                        "spese di istruttoria"
                     )
                 }
             )
@@ -102,8 +167,7 @@ class PageKnowledgeBuilder:
 
             costs.append(
                 {
-                    "type": "perizia",
-                    "description": "Costo perizia presente nella pagina",
+                    "type": "PERIZIA",
                     "source_text": self._find_line(
                         text,
                         "perizia"
@@ -126,9 +190,7 @@ class PageKnowledgeBuilder:
 
             if clean.startswith("*"):
 
-                notes.append(
-                    clean
-                )
+                notes.append(clean)
 
         return notes
 
