@@ -12,6 +12,9 @@ class BrokerEngine:
 
         for rule in rules:
 
+            if not self._is_valid_product_rule(rule):
+                continue
+
             if not self._match_finalita(rule, richiesta):
                 continue
 
@@ -43,20 +46,51 @@ class BrokerEngine:
                     tasso_esplicito=rule.get("tasso_esplicito", False),
                     indice_riferimento=rule.get("indice_riferimento", None),
                     tasso_finito_pdf=rule.get("tasso_finito_pdf", None),
+                    canalizzazione_da=rule.get("canalizzazione_da", ""),
+                    canalizzazione_a=rule.get("canalizzazione_a", ""),
+                    stipula_entro=rule.get("stipula_entro", ""),
+                    condition=rule.get("condition", None),
                 )
             )
 
-        ranking = RankingService()
+        return BrokerResponse(
+            richiesta,
+            RankingService().sort(risultati)
+        )
 
-        risultati = ranking.sort(risultati)
+    def _is_valid_product_rule(self, rule):
 
-        return BrokerResponse(richiesta, risultati)
+        invalid_tassi = ["", "IN CORSO", "MAGAZZINO", "LISTINO"]
+
+        tipo_tasso = self._get_tipo_tasso(rule)
+
+        if str(tipo_tasso).upper() in invalid_tassi:
+            return False
+
+        if not rule.get("spread"):
+            return False
+
+        if not rule.get("finalita"):
+            return False
+
+        if rule.get("durata_min") is None:
+            return False
+
+        if rule.get("durata_max") is None:
+            return False
+
+        if rule.get("ltv_max") is None:
+            return False
+
+        return True
 
     def _match_finalita(self, rule, richiesta):
 
+        richiesta_finalita = str(richiesta.finalita).upper()
+
         for finalita in rule["finalita"]:
 
-            if richiesta.finalita in finalita:
+            if richiesta_finalita in str(finalita).upper():
                 return True
 
         return False
