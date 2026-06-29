@@ -9,6 +9,7 @@ from services.rule_cleaner import RuleCleaner
 from services.json_database import JsonDatabase
 from services.rule_validator import RuleValidator
 from services.error_database import ErrorDatabase
+from services.page_knowledge_builder import PageKnowledgeBuilder
 
 
 class PdfImportService:
@@ -23,6 +24,7 @@ class PdfImportService:
         self.database = JsonDatabase()
         self.validator = RuleValidator()
         self.error_db = ErrorDatabase()
+        self.knowledge_builder = PageKnowledgeBuilder()
 
         Path("output").mkdir(exist_ok=True)
 
@@ -75,6 +77,29 @@ class PdfImportService:
 
         self._save_registry(registry)
 
+    def _blocks_to_text(self, blocchi):
+
+        rows = []
+
+        for blocco in blocchi:
+
+            if isinstance(blocco, list):
+
+                rows.append(
+                    "\n".join(
+                        str(row)
+                        for row in blocco
+                    )
+                )
+
+            else:
+
+                rows.append(
+                    str(blocco)
+                )
+
+        return "\n".join(rows)
+
     def import_pdf(
         self,
         banca,
@@ -88,6 +113,7 @@ class PdfImportService:
 
         rules_ok = []
         rules_error = []
+        page_knowledge = []
 
         for pagina in documento:
 
@@ -97,6 +123,8 @@ class PdfImportService:
             )
 
             header = model.header[0] if len(model.header) > 0 else []
+
+            page_rules_ok = []
 
             for blocco in model.products:
 
@@ -126,8 +154,12 @@ class PdfImportService:
                     errori = self.validator.validate(rule)
 
                     if len(errori) == 0:
+
                         rules_ok.append(rule)
+                        page_rules_ok.append(rule)
+
                     else:
+
                         rules_error.append(
                             {
                                 "rule": rule,
@@ -135,10 +167,29 @@ class PdfImportService:
                             }
                         )
 
+            raw_text = self._blocks_to_text(
+                pagina.get(
+                    "blocchi",
+                    []
+                )
+            )
+
+            knowledge = self.knowledge_builder.build(
+                page_number=model.page,
+                header_blocks=model.header,
+                product_rules=page_rules_ok,
+                raw_text=raw_text
+            )
+
+            page_knowledge.append(
+                knowledge.to_dict()
+            )
+
         nome_output = self._slug(banca)
 
         database_path = f"output/{nome_output}_index.json"
         errors_path = f"output/{nome_output}_errors.json"
+        knowledge_path = f"output/{nome_output}_knowledge.json"
 
         self.database.save(
             rules_ok,
@@ -148,6 +199,11 @@ class PdfImportService:
         self.error_db.save(
             rules_error,
             errors_path
+        )
+
+        self.database.save(
+            page_knowledge,
+            knowledge_path
         )
 
         now = datetime.now().strftime("%d/%m/%Y %H:%M")
@@ -160,6 +216,7 @@ class PdfImportService:
             "regole_errori": len(rules_error),
             "database": database_path,
             "errori": errors_path,
+            "knowledge": knowledge_path,
             "last_updated": now
         }
 
