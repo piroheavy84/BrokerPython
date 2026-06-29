@@ -15,6 +15,10 @@ class PageKnowledge:
         default_factory=list
     )
 
+    market_indexes: list[dict[str, Any]] = field(
+        default_factory=list
+    )
+
     costs: list[dict[str, Any]] = field(
         default_factory=list
     )
@@ -39,6 +43,7 @@ class PageKnowledge:
             "page": self.page,
             "header": self.header,
             "products": self.products,
+            "market_indexes": self.market_indexes,
             "costs": self.costs,
             "conditions": self.conditions,
             "exceptions": self.exceptions,
