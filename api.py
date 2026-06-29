@@ -1,4 +1,6 @@
+import json
 import os
+import re
 import shutil
 
 from fastapi import FastAPI
@@ -46,12 +48,36 @@ app.add_middleware(
 )
 
 
+def discover_index_files():
+
+    json_files = []
+
+    if os.path.exists("output"):
+
+        for filename in os.listdir("output"):
+
+            if filename.endswith("_index.json"):
+
+                json_files.append(
+                    os.path.join(
+                        "output",
+                        filename
+                    )
+                )
+
+    if len(json_files) == 0:
+
+        json_files = [
+            "output/chebanca_index.json"
+        ]
+
+    return json_files
+
+
 db = BrokerDatabase()
 
 db.load_many(
-    [
-        "output/chebanca_index.json"
-    ]
+    discover_index_files()
 )
 
 repo = ProductRepository(db)
@@ -151,29 +177,8 @@ def reload_database():
 
     db = BrokerDatabase()
 
-    json_files = []
-
-    if os.path.exists("output"):
-
-        for filename in os.listdir("output"):
-
-            if filename.endswith("_index.json"):
-
-                json_files.append(
-                    os.path.join(
-                        "output",
-                        filename
-                    )
-                )
-
-    if len(json_files) == 0:
-
-        json_files = [
-            "output/chebanca_index.json"
-        ]
-
     db.load_many(
-        json_files
+        discover_index_files()
     )
 
     repo = ProductRepository(
@@ -204,6 +209,164 @@ def spread_to_float(spread):
     return percent_to_float(
         spread
     )
+
+
+def euro_to_float(value):
+
+    if value is None:
+
+        return 0.0
+
+    clean = (
+        str(value)
+        .replace("€", "")
+        .replace(".", "")
+        .replace(",", ".")
+        .strip()
+    )
+
+    if clean == "":
+
+        return 0.0
+
+    return float(clean)
+
+
+def slug(value):
+
+    return str(value).lower().replace(" ", "_")
+
+
+def load_bank_knowledge(banca):
+
+    path = os.path.join(
+        "output",
+        f"{slug(banca)}_knowledge.json"
+    )
+
+    if not os.path.exists(path):
+
+        return []
+
+    with open(
+        path,
+        "r",
+        encoding="utf-8"
+    ) as f:
+
+        return json.load(f)
+
+
+def parse_istruttoria_from_text(text):
+
+    result = {
+        "percentuale": 0.0,
+        "minimo": 0.0,
+        "massimo": 0.0
+    }
+
+    percent_match = re.search(
+        r"(\d+(?:[,.]\d+)?)\s*%",
+        text
+    )
+
+    if percent_match:
+
+        result["percentuale"] = percent_to_float(
+            percent_match.group(1)
+        )
+
+    euro_values = re.findall(
+        r"€\s*([\d.]+(?:,\d+)?)",
+        text
+    )
+
+    if len(euro_values) >= 1:
+
+        result["minimo"] = euro_to_float(
+            euro_values[0]
+        )
+
+    if len(euro_values) >= 2:
+
+        result["massimo"] = euro_to_float(
+            euro_values[1]
+        )
+
+    return result
+
+
+def get_istruttoria_rule(banca):
+
+    knowledge = load_bank_knowledge(
+        banca
+    )
+
+    for page in knowledge:
+
+        for cost in page.get(
+            "costs",
+            []
+        ):
+
+            if str(
+                cost.get(
+                    "type",
+                    ""
+                )
+            ).upper() == "ISTRUTTORIA":
+
+                source_text = cost.get(
+                    "source_text",
+                    ""
+                )
+
+                return parse_istruttoria_from_text(
+                    source_text
+                )
+
+    return None
+
+
+def calcola_istruttoria(
+    banca,
+    importo
+):
+
+    rule = get_istruttoria_rule(
+        banca
+    )
+
+    if rule is None:
+
+        return 0.0
+
+    percentuale = rule.get(
+        "percentuale",
+        0.0
+    )
+
+    minimo = rule.get(
+        "minimo",
+        0.0
+    )
+
+    massimo = rule.get(
+        "massimo",
+        0.0
+    )
+
+    istruttoria = importo * percentuale / 100
+
+    if minimo > 0 and istruttoria < minimo:
+
+        istruttoria = minimo
+
+    if massimo > 0 and istruttoria > massimo:
+
+        istruttoria = massimo
+
+    return istruttoria
 
 
 def calcola_rata(
@@ -328,6 +491,13 @@ def trova_euribor(
     )
 
 
+def is_tasso_fisso(prodotto):
+
+    return str(
+        prodotto.tasso
+    ).upper() == "FISSO"
+
+
 def calcola_indice_automatico(
     prodotto,
     request
@@ -335,7 +505,7 @@ def calcola_indice_automatico(
 
     rates = rates_service.get_rates()
 
-    if prodotto.tasso == "FISSO":
+    if is_tasso_fisso(prodotto):
 
         return trova_irs_per_durata(
             request.durata,
@@ -345,16 +515,21 @@ def calcola_indice_automatico(
             )
         )
 
-    if prodotto.tasso == "VARIABILE":
-
-        return trova_euribor(
-            rates.get(
-                "euribor",
-                []
-            )
+    return trova_euribor(
+        rates.get(
+            "euribor",
+            []
         )
+    )
 
-    return request.indice_mercato
+
+def get_indice_riferimento(prodotto):
+
+    if is_tasso_fisso(prodotto):
+
+        return "IRS"
+
+    return "EURIBOR"
 
 
 def prodotto_to_json(
@@ -406,18 +581,19 @@ def prodotto_to_json(
 
         tasso_finito = indice + spread
 
-        if p.tasso == "FISSO":
-
-            indice_riferimento = "IRS"
-
-        elif p.tasso == "VARIABILE":
-
-            indice_riferimento = "EURIBOR"
+        indice_riferimento = get_indice_riferimento(
+            p
+        )
 
     rata = calcola_rata(
         request.importo,
         request.durata,
         tasso_finito
+    )
+
+    istruttoria_euro = calcola_istruttoria(
+        p.banca,
+        request.importo
     )
 
     eligibility = bank_eligibility_service.evaluate(
@@ -436,7 +612,6 @@ def prodotto_to_json(
             "coobbligato": False
         }
     )
-
     warnings = list(
         eligibility.get(
             "warnings",
@@ -510,7 +685,7 @@ def prodotto_to_json(
         "pagina": p.pagina,
         "pdf": p.pdf,
         "retrocessione_euro": 0,
-        "istruttoria_euro": 0,
+        "istruttoria_euro": istruttoria_euro,
         "perizia_euro": 0,
         "semaforo_verde": semaforo_verde,
         "semaforo": semaforo,
@@ -880,6 +1055,8 @@ def get_quote_pdf(
 def search(
     request: SearchRequest
 ):
+
+    reload_database()
 
     customer = Customer(
         nome="API",
