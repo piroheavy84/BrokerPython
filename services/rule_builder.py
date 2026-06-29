@@ -15,6 +15,8 @@ class RuleBuilder:
 
         rules = []
 
+        pending_rows = []
+
         header_info = self.header_parser.parse(header)
 
         finalita = ""
@@ -25,35 +27,37 @@ class RuleBuilder:
 
         for riga in blocco:
 
-            upper = riga.upper()
+            upper = riga.upper().strip()
 
-            if "FINALITA" in upper or "SURROGA" in upper:
+            if self._is_finalita_row(upper):
 
                 finalita = riga
 
                 continue
 
-            if upper == "FISSO":
+            nuovo_tasso = self._detect_tasso(upper)
 
-                tasso = "FISSO"
+            if nuovo_tasso:
 
-                continue
+                tasso = nuovo_tasso
 
-            if "VARIABILE CON FLOOR" in upper:
+                if len(pending_rows) > 0:
 
-                tasso = "VARIABILE CON FLOOR"
+                    for pending in pending_rows:
 
-            elif "VARIABILE CON CAP" in upper:
+                        rules.extend(
+                            self._build_rules_from_row(
+                                header_info=header_info,
+                                finalita=finalita,
+                                tasso=tasso,
+                                durata_min=pending["durata_min"],
+                                durata_max=pending["durata_max"],
+                                spread=pending["spread"],
+                                colonne_ltv=colonne_ltv
+                            )
+                        )
 
-                tasso = "VARIABILE CON CAP"
-
-            elif upper.startswith("VARIABILE"):
-
-                tasso = "VARIABILE"
-
-            elif "RATA PROTETTA" in upper:
-
-                tasso = "RATA PROTETTA"
+                    pending_rows = []
 
             durata = re.search(
                 r"(\d+)\s*[-–]\s*(\d+)",
@@ -77,23 +81,102 @@ class RuleBuilder:
                 durata.group(2)
             )
 
-            if len(spread) == 4:
+            if tasso == "":
 
-                for i in range(4):
+                pending_rows.append(
+                    {
+                        "durata_min": durata_min,
+                        "durata_max": durata_max,
+                        "spread": spread
+                    }
+                )
 
-                    rules.append(
-                        self._build_rule(
-                            header_info=header_info,
-                            finalita=finalita,
-                            tasso=tasso,
-                            durata_min=durata_min,
-                            durata_max=durata_max,
-                            ltv_max=colonne_ltv[i],
-                            spread=spread[i]
-                        )
-                    )
+                continue
 
-            elif len(spread) == 1:
+            rules.extend(
+                self._build_rules_from_row(
+                    header_info=header_info,
+                    finalita=finalita,
+                    tasso=tasso,
+                    durata_min=durata_min,
+                    durata_max=durata_max,
+                    spread=spread,
+                    colonne_ltv=colonne_ltv
+                )
+            )
+
+        return rules
+
+    def _is_finalita_row(
+        self,
+        upper
+    ):
+
+        if upper.startswith("FINALITA"):
+
+            return True
+
+        if upper.startswith("FINALITÀ"):
+
+            return True
+
+        if upper.startswith("GRUPPO") and "FINALITA" in upper:
+
+            return True
+
+        if upper.startswith("GRUPPO") and "FINALITÀ" in upper:
+
+            return True
+
+        if upper.startswith("SURROGA"):
+
+            return True
+
+        return False
+
+    def _detect_tasso(
+        self,
+        upper
+    ):
+
+        if upper == "FISSO":
+
+            return "FISSO"
+
+        if "VARIABILE CON FLOOR" in upper:
+
+            return "VARIABILE CON FLOOR"
+
+        if "VARIABILE CON CAP" in upper:
+
+            return "VARIABILE CON CAP"
+
+        if upper.startswith("VARIABILE"):
+
+            return "VARIABILE"
+
+        if "RATA PROTETTA" in upper:
+
+            return "RATA PROTETTA"
+
+        return None
+
+    def _build_rules_from_row(
+        self,
+        header_info,
+        finalita,
+        tasso,
+        durata_min,
+        durata_max,
+        spread,
+        colonne_ltv
+    ):
+
+        rules = []
+
+        if len(spread) == 4:
+
+            for i in range(4):
 
                 rules.append(
                     self._build_rule(
@@ -102,10 +185,24 @@ class RuleBuilder:
                         tasso=tasso,
                         durata_min=durata_min,
                         durata_max=durata_max,
-                        ltv_max=80,
-                        spread=spread[0]
+                        ltv_max=colonne_ltv[i],
+                        spread=spread[i]
                     )
                 )
+
+        elif len(spread) == 1:
+
+            rules.append(
+                self._build_rule(
+                    header_info=header_info,
+                    finalita=finalita,
+                    tasso=tasso,
+                    durata_min=durata_min,
+                    durata_max=durata_max,
+                    ltv_max=80,
+                    spread=spread[0]
+                )
+            )
 
         return rules
 
