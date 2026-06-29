@@ -24,6 +24,7 @@ from services.bank_memory_confirm_service import BankMemoryConfirmService
 from services.bank_eligibility_service import BankEligibilityService
 from services.pdf_document_reader import PdfDocumentReader
 from services.pdf_gap_analyzer_service import PdfGapAnalyzerService
+from services.page_analyzer import PageAnalyzer
 
 from domain.mortgage_practice import MortgagePractice
 
@@ -72,6 +73,8 @@ bank_memory_service = BankMemoryService()
 bank_eligibility_service = BankEligibilityService()
 
 pdf_gap_analyzer_service = PdfGapAnalyzerService()
+
+page_analyzer = PageAnalyzer()
 
 
 class SearchRequest(BaseModel):
@@ -352,6 +355,8 @@ def calcola_indice_automatico(
         )
 
     return request.indice_mercato
+
+
 def prodotto_to_json(
     p,
     request,
@@ -519,6 +524,25 @@ def prodotto_to_json(
     }
 
 
+def block_to_text(
+    blocco
+):
+
+    if isinstance(
+        blocco,
+        list
+    ):
+
+        return " ".join(
+            str(row)
+            for row in blocco
+        )
+
+    return str(
+        blocco
+    )
+
+
 def read_pdf_debug_pages(
     pdf_path
 ):
@@ -533,16 +557,26 @@ def read_pdf_debug_pages(
 
     for pagina in documento:
 
-        raw_text = ""
+        page_number = pagina.get(
+            "pagina"
+        )
 
-        for blocco in pagina.get(
+        blocchi = pagina.get(
             "blocchi",
             []
-        ):
+        )
 
-            raw_text += "\n" + str(
+        raw_text = "\n".join(
+            block_to_text(
                 blocco
             )
+            for blocco in blocchi
+        )
+
+        model = page_analyzer.analyze(
+            page_number,
+            blocchi
+        )
 
         analysis = pdf_preview_service.analyze_text(
             raw_text
@@ -550,11 +584,32 @@ def read_pdf_debug_pages(
 
         pages.append(
             {
-                "pagina": pagina.get(
-                    "pagina"
+                "pagina": page_number,
+                "numero_blocchi": len(
+                    blocchi
                 ),
-                "analysis": analysis,
-                "raw_text": raw_text
+                "header_count": len(
+                    model.header
+                ),
+                "products_count": len(
+                    model.products
+                ),
+                "info_count": len(
+                    model.info
+                ),
+                "unknown_count": len(
+                    model.unknown
+                ),
+                "raw_text_length": len(
+                    raw_text
+                ),
+                "raw_text": raw_text,
+                "blocchi": blocchi,
+                "header_blocks": model.header,
+                "product_blocks": model.products,
+                "info_blocks": model.info,
+                "unknown_blocks": model.unknown,
+                "analysis": analysis
             }
         )
 
@@ -633,6 +688,9 @@ def debug_pdf(
     return {
         "success": True,
         "banca": request.banca,
+        "numero_pagine": len(
+            pages
+        ),
         "pages": pages
     }
 
@@ -653,9 +711,14 @@ def debug_gaps(
     return {
         "success": True,
         "banca": request.banca,
+        "numero_pagine": len(
+            pages
+        ),
         "pages": pages,
         "gaps": gaps
     }
+
+
 @app.post("/banks/memory/confirm-phrases")
 def confirm_phrases(
     request: ConfirmPhrasesRequest
