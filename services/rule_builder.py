@@ -20,6 +20,7 @@ class RuleBuilder:
 
         finalita = ""
         tasso = ""
+        last_durata_max = None
 
         colonne_ltv = [50, 60, 70, 80]
 
@@ -30,6 +31,10 @@ class RuleBuilder:
             if self._is_finalita_row(upper):
 
                 finalita = riga
+                tasso = ""
+                last_durata_max = None
+                pending_rows = []
+                pending_cap = None
                 continue
 
             if pending_cap is not None:
@@ -62,6 +67,7 @@ class RuleBuilder:
             if nuovo_tasso:
 
                 tasso = nuovo_tasso
+                last_durata_max = None
 
                 if tasso == "VARIABILE CON CAP":
 
@@ -108,6 +114,8 @@ class RuleBuilder:
 
                     pending_rows = []
 
+                continue
+
             durata = re.search(
                 r"(\d+)\s*[-–]\s*(\d+)",
                 riga
@@ -129,6 +137,15 @@ class RuleBuilder:
             durata_max = int(
                 durata.group(2)
             )
+
+            tasso = self._infer_tasso_from_table_restart(
+                current_tasso=tasso,
+                last_durata_max=last_durata_max,
+                durata_min=durata_min,
+                durata_max=durata_max
+            )
+
+            last_durata_max = durata_max
 
             if tasso == "":
 
@@ -155,6 +172,24 @@ class RuleBuilder:
             )
 
         return rules
+
+    def _infer_tasso_from_table_restart(
+        self,
+        current_tasso,
+        last_durata_max,
+        durata_min,
+        durata_max
+    ):
+
+        if current_tasso == "FISSO":
+
+            if last_durata_max is not None:
+
+                if last_durata_max >= 30 and durata_min <= 10:
+
+                    return "VARIABILE CON FLOOR"
+
+        return current_tasso
 
     def _is_finalita_row(self, upper):
 
