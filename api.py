@@ -117,6 +117,7 @@ class SearchRequest(BaseModel):
 
     indice_mercato: float = 0
 
+    data_rogito: str = ""
 
 class ManualIrsRequest(BaseModel):
 
@@ -668,8 +669,13 @@ def prodotto_to_json(
 
     return {
         "banca": p.banca,
-        "prodotto": f"{p.tasso} {p.tipo_listino}",
-        "listino": p.tipo_listino,
+        "prodotto": p.tasso,
+        "listino": (
+            f"LISTINO {p.tipo_listino} - Offerta {p.banca} "
+            f"canalizzazioni dal {getattr(p, 'canalizzazione_da', '')} "
+            f"al {getattr(p, 'canalizzazione_a', '')} "
+            f"con stipule entro il {getattr(p, 'stipula_entro', '')}"
+        ),
         "spread": spread,
         "spread_label": p.spread,
         "indice": indice,
@@ -1075,7 +1081,8 @@ def search(
         importo=request.importo,
         durata=request.durata,
         finalita=request.finalita,
-        tasso=request.tasso
+        tasso=request.tasso,
+        data_rogito=request.data_rogito
     )
 
     practice = MortgagePractice(
