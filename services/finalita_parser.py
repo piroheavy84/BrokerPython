@@ -1,43 +1,12 @@
+from services.finalita_normalizer import FinalitaNormalizer
+
+
 class FinalitaParser:
 
+    def __init__(self):
+        self.normalizer = FinalitaNormalizer()
+
     def parse(self, testo):
-
-        testo = testo.upper()
-
-        # elimina intestazioni
-
-        testo = testo.replace(
-            "GRUPPO 1:", ""
-        )
-
-        testo = testo.replace(
-            "GRUPPO 2:", ""
-        )
-
-        testo = testo.replace(
-            "FINALITA’", ""
-        )
-
-        testo = testo.replace(
-            "FINALITA'",
-            ""
-        )
-
-        testo = testo.replace(
-            "FINALITA",
-            ""
-        )
-
-        parti = testo.split("-")
-
-        risultato = []
-
-        for p in parti:
-
-            p = p.strip()
-
-            if p != "":
-
-                risultato.append(p)
-
-        return risultato
+        # Manteniamo la lista testuale leggibile nel JSON, ma la estraiamo
+        # con un parser più robusto rispetto alle diciture PDF.
+        return self.normalizer.split_pdf_finalita(testo)

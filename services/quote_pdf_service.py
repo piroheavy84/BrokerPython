@@ -2,882 +2,589 @@ import json
 from datetime import datetime
 from pathlib import Path
 
+from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4
+from reportlab.lib.utils import ImageReader
 from reportlab.pdfgen import canvas
 
 
 class QuotePdfService:
 
     QUOTES_DIR = Path("quotes")
-
     REGISTRY_FILE = QUOTES_DIR / "quotes_registry.json"
-
     CLIENTS_FILE = QUOTES_DIR / "clients_registry.json"
 
+    NAVY = colors.HexColor("#082971")
+    NAVY_DARK = colors.HexColor("#151C2C")
+    BLUE = colors.HexColor("#2A67A5")
+    LIGHT_BLUE = colors.HexColor("#EAF5FC")
+    VERY_LIGHT_BLUE = colors.HexColor("#F5FAFE")
+    BORDER = colors.HexColor("#C7DCEB")
+    TEXT = colors.HexColor("#253247")
+    MUTED = colors.HexColor("#65758A")
+    WHITE = colors.white
+
+    PAGE_MARGIN = 38
+    FOOTER_H = 82
+
     def __init__(self):
+        self.QUOTES_DIR.mkdir(exist_ok=True)
+        self.logo_path = Path(__file__).resolve().parent.parent / "assets" / "kiron_logo.png"
 
-        self.QUOTES_DIR.mkdir(
-            exist_ok=True
-        )
-
-    def _load_json(
-        self,
-        path
-    ):
-
+    def _load_json(self, path):
         if not path.exists():
-
+            return []
+        try:
+            return json.loads(path.read_text(encoding="utf-8"))
+        except Exception:
             return []
 
-        return json.loads(
-            path.read_text(
-                encoding="utf-8"
-            )
-        )
-
-    def _save_json(
-        self,
-        path,
-        data
-    ):
-
+    def _save_json(self, path, data):
         path.write_text(
-            json.dumps(
-                data,
-                indent=4,
-                ensure_ascii=False
-            ),
-            encoding="utf-8"
+            json.dumps(data, indent=4, ensure_ascii=False),
+            encoding="utf-8",
         )
 
-    def list_quotes(
-        self
-    ):
-
-        registry = self._load_json(
-            self.REGISTRY_FILE
-        )
-
+    def list_quotes(self):
+        registry = self._load_json(self.REGISTRY_FILE)
         return sorted(
             registry,
-            key=lambda x: x.get(
-                "created_at_sort",
-                ""
-            ),
-            reverse=True
+            key=lambda x: x.get("created_at_sort", ""),
+            reverse=True,
         )
 
-    def list_clients(
-        self
-    ):
-
-        clients = self._load_json(
-            self.CLIENTS_FILE
-        )
-
+    def list_clients(self):
+        clients = self._load_json(self.CLIENTS_FILE)
         return sorted(
             clients,
-            key=lambda x: x.get(
-                "last_updated_sort",
-                ""
-            ),
-            reverse=True
+            key=lambda x: x.get("last_updated_sort", ""),
+            reverse=True,
         )
 
-    def _update_clients_registry(
-        self,
-        quote_item
-    ):
-
-        clients = self._load_json(
-            self.CLIENTS_FILE
-        )
-
-        cliente = quote_item.get(
-            "cliente",
-            ""
-        ).strip()
-
-        if cliente == "":
-
-            cliente = "Cliente senza nome"
-
+    def _update_clients_registry(self, quote_item):
+        clients = self._load_json(self.CLIENTS_FILE)
+        cliente = quote_item.get("cliente", "").strip() or "Cliente senza nome"
         clients = [
-            c
-            for c in clients
-            if c.get(
-                "cliente",
-                ""
-            ).lower()
-            != cliente.lower()
+            c for c in clients
+            if c.get("cliente", "").lower() != cliente.lower()
         ]
+        clients.append({
+            "cliente": cliente,
+            "ultimo_preventivo": quote_item.get("filename", ""),
+            "ultimo_preventivo_numero": quote_item.get("quote_number", ""),
+            "ultimo_preventivo_data": quote_item.get("created_at", ""),
+            "last_updated_sort": quote_item.get("created_at_sort", ""),
+            "importo": quote_item.get("importo", 0),
+            "durata": quote_item.get("durata", ""),
+            "prodotti": quote_item.get("prodotti", 0),
+        })
+        self._save_json(self.CLIENTS_FILE, clients)
 
-        clients.append(
-            {
-                "cliente": cliente,
-                "ultimo_preventivo": quote_item.get(
-                    "filename",
-                    ""
-                ),
-                "ultimo_preventivo_data": quote_item.get(
-                    "created_at",
-                    ""
-                ),
-                "last_updated_sort": quote_item.get(
-                    "created_at_sort",
-                    ""
-                ),
-                "importo": quote_item.get(
-                    "importo",
-                    0
-                ),
-                "durata": quote_item.get(
-                    "durata",
-                    ""
-                ),
-                "prodotti": quote_item.get(
-                    "prodotti",
-                    0
-                )
-            }
-        )
+    def _next_quote_number(self, now):
+        year = now.year
+        max_seq = 0
+        for item in self._load_json(self.REGISTRY_FILE):
+            try:
+                item_year = int(item.get("quote_year", 0) or 0)
+                seq = int(item.get("quote_seq", 0) or 0)
+            except Exception:
+                continue
+            if item_year == year:
+                max_seq = max(max_seq, seq)
+        seq = max_seq + 1
+        return f"{year}-{seq:03d}", seq
 
-        self._save_json(
-            self.CLIENTS_FILE,
-            clients
-        )
-
-    def _euro(
-        self,
-        value
-    ):
-
+    def _euro(self, value):
         try:
-
-            return f"€ {float(value):,.2f}" \
-                .replace(",", "X") \
-                .replace(".", ",") \
+            return (
+                f"€ {float(value):,.2f}"
+                .replace(",", "X")
+                .replace(".", ",")
                 .replace("X", ".")
-
+            )
         except Exception:
-
             return "€ 0,00"
 
-    def _percent(
-        self,
-        value
-    ):
-
+    def _percent(self, value):
         try:
-
-            return f"{float(value):.2f}%" \
-                .replace(".", ",")
-
+            return f"{float(value):.2f}%".replace(".", ",")
         except Exception:
-
             return "0,00%"
 
-    def _score(
-        self,
-        value
-    ):
-
+    def _safe_float(self, value, default=0.0):
         try:
-
-            return int(
-                round(
-                    float(
-                        value
-                    )
-                )
-            )
-
+            return float(value or 0)
         except Exception:
+            return default
 
-            return 0
+    def _wrap(self, c, text, x, y, width, font="Helvetica", size=9.5, leading=13, color=None):
+        c.setFont(font, size)
+        c.setFillColor(color or self.TEXT)
+        words = str(text or "").split()
+        line = ""
+        while words:
+            candidate = (line + " " + words[0]).strip()
+            if c.stringWidth(candidate, font, size) <= width:
+                line = candidate
+                words.pop(0)
+            else:
+                if line:
+                    c.drawString(x, y, line)
+                    y -= leading
+                    line = ""
+                else:
+                    word = words.pop(0)
+                    c.drawString(x, y, word)
+                    y -= leading
+        if line:
+            c.drawString(x, y, line)
+            y -= leading
+        return y
 
-    def _semaforo_label(
-        self,
-        prodotto
-    ):
+    def _draw_round_box(self, c, x, y, w, h, fill, stroke=None, radius=10):
+        c.setFillColor(fill)
+        c.setStrokeColor(stroke or fill)
+        c.roundRect(x, y, w, h, radius, fill=1, stroke=1)
 
-        semaforo = str(
-            prodotto.get(
-                "semaforo",
-                ""
-            )
-        ).upper()
+    def _draw_header(self, c, width, height, quote_number=None, page_num=None):
+        top = height - 38
 
-        if semaforo == "ROSSO":
+        if self.logo_path.exists():
+            try:
+                img = ImageReader(str(self.logo_path))
+                c.drawImage(
+                    img,
+                    self.PAGE_MARGIN,
+                    top - 34,
+                    width=128,
+                    height=32,
+                    preserveAspectRatio=True,
+                    mask="auto",
+                )
+            except Exception:
+                pass
 
-            return "ROSSO"
+        x_sep = 178
+        c.setStrokeColor(self.NAVY)
+        c.setLineWidth(1)
+        c.line(x_sep, top - 38, x_sep, top + 1)
 
-        if semaforo == "GIALLO":
+        c.setFillColor(self.NAVY)
+        c.setFont("Helvetica-Bold", 12)
+        c.drawString(194, top - 7, "KIRON MILANO")
+        c.setFont("Helvetica", 8.5)
+        c.drawString(194, top - 20, "Viale Brenta 6 - 20123 Milano (MI)")
 
-            return "GIALLO"
+        right_x = 360
+        c.setFont("Helvetica-Bold", 10)
+        c.drawString(right_x, top - 8, "MUTUI - PRESTITI - ASSICURAZIONI")
+        c.setFont("Helvetica-Oblique", 8.5)
+        c.setFillColor(self.BLUE)
+        c.drawString(right_x, top - 23, "Le persone al centro delle tue scelte")
 
-        if prodotto.get(
-            "semaforo_verde",
-            True
-        ) is False:
+        if quote_number:
+            c.setFont("Helvetica", 7.5)
+            c.setFillColor(self.MUTED)
+            label = f"Preventivo {quote_number}"
+            if page_num:
+                label += f" - pag. {page_num}"
+            c.drawRightString(width - self.PAGE_MARGIN, top - 38, label)
 
-            return "ROSSO"
+        c.setStrokeColor(self.BORDER)
+        c.setLineWidth(0.7)
+        c.line(self.PAGE_MARGIN, top - 47, width - self.PAGE_MARGIN, top - 47)
+        return top - 61
 
-        return "VERDE"
+    def _draw_footer(self, c, width, quote_number):
+        y0 = 18
+        c.setFillColor(self.NAVY)
+        c.rect(0, 0, width, self.FOOTER_H, fill=1, stroke=0)
 
-    def _ensure_space(
-        self,
-        c,
-        y,
-        height,
-        needed=80
-    ):
+        c.setFillColor(self.WHITE)
+        c.setFont("Helvetica-Bold", 8.5)
+        c.drawString(38, y0 + 45, "RICCARDO PIRINI")
+        c.setFont("Helvetica", 7.5)
+        c.drawString(38, y0 + 33, "Consulente del Credito e Assicurativo")
+        c.setFont("Helvetica-Bold", 8.5)
+        c.drawString(38, y0 + 20, "349 8174222")
+        c.setFont("Helvetica", 7.5)
+        c.drawString(38, y0 + 9, "riccardo.pirini@kiron.it")
 
-        if y < needed:
+        c.setStrokeColor(colors.HexColor("#5A86B4"))
+        c.line(250, y0 + 8, 250, y0 + 54)
 
+        c.setFont("Helvetica-Bold", 8.2)
+        c.drawString(266, y0 + 45, "AGENZIA KIRON MILANO")
+        c.setFont("Helvetica", 7.2)
+        c.drawString(266, y0 + 33, "Viale Brenta 6 - 20123 Milano (MI)")
+        c.drawString(266, y0 + 21, "02 82877580 - k0278@kiron.it")
+        c.drawString(266, y0 + 9, "www.kiron.it")
+
+        c.setFont("Helvetica", 6.2)
+        c.drawRightString(
+            width - 38,
+            y0 + 45,
+            "Kiron Partner S.p.A.",
+        )
+        c.drawRightString(
+            width - 38,
+            y0 + 33,
+            "Società di Mediazione Creditizia",
+        )
+        c.drawRightString(
+            width - 38,
+            y0 + 21,
+            "Iscrizione Elenco OAM n. M39",
+        )
+        c.drawRightString(
+            width - 38,
+            y0 + 9,
+            f"Preventivo n. {quote_number}",
+        )
+
+    def _new_page(self, c, width, height, quote_number, page_num):
+        if page_num > 1:
             c.showPage()
-
-            return height - 50
-
+        y = self._draw_header(c, width, height, quote_number, page_num)
+        self._draw_footer(c, width, quote_number)
         return y
 
-    def _draw_confronto_prodotti(
-        self,
-        c,
-        y,
-        height,
-        prodotti
-    ):
+    def _draw_intro(self, c, y, width):
+        x = self.PAGE_MARGIN
+        w = width - 2 * self.PAGE_MARGIN
+        h = 88
+        self._draw_round_box(c, x, y - h, w, h, self.VERY_LIGHT_BLUE, self.BORDER, 12)
 
-        if len(prodotti) < 2:
+        c.setFillColor(self.NAVY)
+        c.setFont("Helvetica-Bold", 22)
+        c.drawString(x + 18, y - 28, "PREVENTIVO MUTUO")
+        c.setFont("Helvetica", 11.5)
+        c.drawString(x + 18, y - 47, "Una proposta costruita sui dati della tua pratica")
 
-            return y
-
-        prodotti_ordinati = sorted(
-            prodotti,
-            key=lambda p: (
-                -self._score(
-                    p.get(
-                        "score",
-                        0
-                    )
-                ),
-                float(
-                    p.get(
-                        "rata",
-                        0
-                    )
-                )
-            )
-        )
-
-        rata_migliore = float(
-            prodotti_ordinati[0].get(
-                "rata",
-                0
-            )
-        )
-
-        y = self._ensure_space(
+        self._wrap(
             c,
-            y,
-            height,
-            150
+            "Ti presentiamo le soluzioni selezionate per accompagnarti nella scelta del mutuo, con una lettura chiara dei principali parametri economici e dei costi.",
+            x + 18,
+            y - 65,
+            w - 36,
+            size=8.8,
+            leading=11,
+            color=self.TEXT,
+        )
+        return y - h - 14
+
+    def _draw_meta_and_practice(self, c, y, width, quote_number, now, cliente, pratica):
+        x = self.PAGE_MARGIN
+        gap = 10
+        total_w = width - 2 * x
+        left_w = 168
+        right_w = total_w - left_w - gap
+        h = 132
+
+        self._draw_round_box(c, x, y - h, left_w, h, self.LIGHT_BLUE, self.BORDER, 10)
+        self._draw_round_box(c, x + left_w + gap, y - h, right_w, h, colors.white, self.BORDER, 10)
+
+        c.setFillColor(self.NAVY)
+        c.setFont("Helvetica-Bold", 11)
+        c.drawString(x + 14, y - 25, f"Preventivo n. {quote_number}")
+        c.setFont("Helvetica", 9)
+        c.setFillColor(self.TEXT)
+        c.drawString(x + 14, y - 42, f"Data: {now.strftime('%d/%m/%Y')}")
+
+        c.setFont("Helvetica-Bold", 9.5)
+        c.setFillColor(self.NAVY)
+        c.drawString(x + 14, y - 69, "CLIENTE")
+        c.setFont("Helvetica", 9)
+        c.setFillColor(self.TEXT)
+        nome = f"{cliente.get('nome', '')} {cliente.get('cognome', '')}".strip() or "-"
+        c.drawString(x + 14, y - 86, nome)
+
+        rx = x + left_w + gap + 14
+        c.setFillColor(self.NAVY)
+        c.setFont("Helvetica-Bold", 10.5)
+        c.drawString(rx, y - 24, "DATI PRATICA")
+
+        finalita = pratica.get("finalita_label") or pratica.get("finalita", "")
+        rows = [
+            ("Finalità", str(finalita).replace("_", " ").title()),
+            ("Valore immobile", self._euro(pratica.get("valore_immobile", 0))),
+            ("Importo mutuo", self._euro(pratica.get("importo", 0))),
+            ("Durata", f"{pratica.get('durata', '')} anni"),
+            ("LTV", self._percent(pratica.get("ltv", 0))),
+        ]
+        yy = y - 45
+        for label, value in rows:
+            c.setFont("Helvetica", 8.5)
+            c.setFillColor(self.MUTED)
+            c.drawString(rx, yy, f"{label}:")
+            c.setFont("Helvetica-Bold", 8.2)
+            c.setFillColor(self.TEXT)
+            c.drawRightString(x + total_w - 14, yy, value)
+            yy -= 17
+
+        return y - h - 14
+
+    def _policy_lines(self, prodotto):
+        lines = []
+        policies = [
+            ("Vita", "polizza_vita_euro"),
+            ("Lavoro", "polizza_lavoro_euro"),
+            ("Vita + Lavoro", "polizza_vita_lavoro_euro"),
+            ("Scoppio e Incendio", "polizza_scoppio_incendio_euro"),
+        ]
+        for label, key in policies:
+            value = self._safe_float(prodotto.get(key, 0))
+            if value > 0:
+                lines.append((f"Polizza {label}", self._euro(value)))
+        return lines
+
+    def _total_quote_cost(self, prodotto):
+        explicit = prodotto.get("totale_costi_preventivo_cliente")
+        if explicit is not None:
+            return self._safe_float(explicit)
+
+        imposta = self._safe_float(
+            prodotto.get(
+                "imposta_sostitutiva_euro",
+                prodotto.get("costi_avviamento_euro", 0),
+            )
+        )
+        polizze = self._safe_float(prodotto.get("totale_polizze_cliente", 0))
+        if polizze <= 0:
+            polizze = sum(
+                self._safe_float(prodotto.get(k, 0))
+                for k in [
+                    "polizza_vita_euro",
+                    "polizza_lavoro_euro",
+                    "polizza_vita_lavoro_euro",
+                    "polizza_scoppio_incendio_euro",
+                ]
+            )
+
+        return (
+            self._safe_float(prodotto.get("istruttoria_euro", 0))
+            + imposta
+            + self._safe_float(prodotto.get("perizia_euro", 0))
+            + polizze
+            + self._safe_float(prodotto.get("provvigione_euro", 0))
         )
 
-        c.setFont(
-            "Helvetica-Bold",
-            13
+    def _product_costs(self, prodotto):
+        imposta_euro = self._safe_float(
+            prodotto.get(
+                "imposta_sostitutiva_euro",
+                prodotto.get("costi_avviamento_euro", 0),
+            )
+        )
+        compensi = self._safe_float(prodotto.get("provvigione_euro", 0))
+
+        rows = [
+            ("Istruttoria", self._euro(prodotto.get("istruttoria_euro", 0))),
+            ("Imposta sostitutiva", self._euro(imposta_euro)),
+            ("Perizia", self._euro(prodotto.get("perizia_euro", 0))),
+        ]
+
+        policy_lines = self._policy_lines(prodotto)
+        if policy_lines:
+            rows.extend(policy_lines)
+        else:
+            rows.append(("Polizze", "Non previste"))
+
+        rows.append(("Compensi KIRON", self._euro(compensi)))
+        return rows
+
+    def _draw_product_card(self, c, y, width, index, prodotto):
+        x = self.PAGE_MARGIN
+        w = width - 2 * x
+        h = 205
+
+        self._draw_round_box(c, x, y - h, w, h, colors.white, self.BORDER, 10)
+
+        # Header prodotto
+        c.setFillColor(self.LIGHT_BLUE)
+        c.roundRect(x, y - 38, w, 38, 10, fill=1, stroke=0)
+        c.rect(x, y - 38, w, 9, fill=1, stroke=0)
+
+        c.setFillColor(self.NAVY)
+        c.setFont("Helvetica-Bold", 11.5)
+        c.drawString(x + 14, y - 23, f"PRODOTTO n. {index}")
+
+        c.setFont("Helvetica", 7.4)
+        c.setFillColor(self.MUTED)
+        c.drawRightString(
+            x + w - 14,
+            y - 23,
+            "Soluzione selezionata sulla base dei dati della pratica",
         )
 
+        # Colonna sinistra: tasso e rata
+        hero_y = y - 57
+        c.setFont("Helvetica", 7.2)
+        c.setFillColor(self.MUTED)
+        c.drawString(x + 16, hero_y, "Tasso finito")
+        c.drawString(x + 168, hero_y, "Rata mensile")
+
+        c.setFont("Helvetica-Bold", 16.5)
+        c.setFillColor(self.NAVY)
         c.drawString(
-            40,
-            y,
-            "CONFRONTO PRODOTTI"
+            x + 16,
+            hero_y - 21,
+            self._percent(prodotto.get("tasso_finito", 0)),
         )
-
-        y -= 24
-
-        c.setFont(
-            "Helvetica-Bold",
-            8
-        )
-
         c.drawString(
-            40,
-            y,
-            "Banca"
+            x + 168,
+            hero_y - 21,
+            self._euro(prodotto.get("rata", 0)),
         )
 
-        c.drawString(
-            135,
-            y,
-            "Rata"
+        # Separatore verticale
+        split_x = x + 315
+        c.setStrokeColor(self.BORDER)
+        c.setLineWidth(0.7)
+        c.line(split_x, y - 48, split_x, y - h + 28)
+
+        # Colonna destra: costi
+        c.setFillColor(self.NAVY)
+        c.setFont("Helvetica-Bold", 8.4)
+        c.drawString(split_x + 16, hero_y, "COSTI E CONDIZIONI")
+
+        yy = hero_y - 16
+        costs = self._product_costs(prodotto)
+        for label, value in costs:
+            c.setFont("Helvetica", 7.2)
+            c.setFillColor(self.TEXT)
+            c.drawString(split_x + 16, yy, label)
+            c.setFont("Helvetica-Bold", 7.2)
+            c.drawRightString(x + w - 16, yy, value)
+            yy -= 12.5
+
+        # Totale costi sempre sotto le voci, senza sovrapposizioni
+        total_box_h = 25
+        total_box_y = y - h + 34
+        c.setFillColor(self.NAVY)
+        c.roundRect(
+            split_x + 12,
+            total_box_y,
+            w - (split_x - x) - 24,
+            total_box_h,
+            6,
+            fill=1,
+            stroke=0,
+        )
+        c.setFillColor(self.WHITE)
+        c.setFont("Helvetica-Bold", 7.8)
+        c.drawString(split_x + 23, total_box_y + 8.5, "TOTALE COSTI")
+        c.setFont("Helvetica-Bold", 9.1)
+        c.drawRightString(
+            x + w - 18,
+            total_box_y + 8.5,
+            self._euro(self._total_quote_cost(prodotto)),
         )
 
-        c.drawString(
-            200,
-            y,
-            "Diff."
+        # Nota prodotto, più piccola e contenuta a sinistra
+        self._wrap(
+            c,
+            "I valori esposti sono riferiti alla simulazione selezionata e possono variare in fase di delibera.",
+            x + 16,
+            y - h + 22,
+            275,
+            size=6.4,
+            leading=8,
+            color=self.MUTED,
         )
 
-        c.drawString(
-            260,
-            y,
-            "Tasso"
+        return y - h - 10
+
+    def _draw_closing(self, c, y, width):
+        x = self.PAGE_MARGIN
+        w = width - 2 * x
+        h = 74
+        self._draw_round_box(c, x, y - h, w, h, self.VERY_LIGHT_BLUE, self.BORDER, 10)
+
+        c.setFillColor(self.NAVY)
+        c.setFont("Helvetica-Bold", 10.5)
+        c.drawString(x + 15, y - 24, "IL TUO CONSULENTE KIRON")
+        self._wrap(
+            c,
+            "Ti accompagnerò nella lettura delle soluzioni e nei passaggi successivi, per chiarire condizioni, costi e documentazione necessaria fino alla scelta definitiva.",
+            x + 15,
+            y - 42,
+            w - 30,
+            size=8.6,
+            leading=11,
+            color=self.TEXT,
         )
+        return y - h - 10
 
-        c.drawString(
-            315,
-            y,
-            "Spread"
-        )
-
-        c.drawString(
-            375,
-            y,
-            "Costi"
-        )
-
-        c.drawString(
-            445,
-            y,
-            "Semaforo"
-        )
-
-        c.drawString(
-            515,
-            y,
-            "Score"
-        )
-
-        y -= 12
-
-        c.line(
-            40,
-            y,
-            555,
-            y
-        )
-
-        y -= 16
-
-        c.setFont(
-            "Helvetica",
-            8
-        )
-
-        for prodotto in prodotti_ordinati:
-
-            y = self._ensure_space(
-                c,
-                y,
-                height,
-                70
-            )
-
-            rata = float(
-                prodotto.get(
-                    "rata",
-                    0
-                )
-            )
-
-            diff = rata - rata_migliore
-
-            banca = str(
-                prodotto.get(
-                    "banca",
-                    ""
-                )
-            )[:18]
-
-            semaforo = self._semaforo_label(
-                prodotto
-            )
-
-            score = self._score(
-                prodotto.get(
-                    "score",
-                    0
-                )
-            )
-
-            c.drawString(
-                40,
-                y,
-                banca
-            )
-
-            c.drawString(
-                135,
-                y,
-                self._euro(
-                    rata
-                )
-            )
-
-            c.drawString(
-                200,
-                y,
-                self._euro(
-                    diff
-                )
-            )
-
-            c.drawString(
-                260,
-                y,
-                self._percent(
-                    prodotto.get(
-                        "tasso_finito",
-                        0
-                    )
-                )
-            )
-
-            c.drawString(
-                315,
-                y,
-                self._percent(
-                    prodotto.get(
-                        "spread",
-                        0
-                    )
-                )
-            )
-
-            c.drawString(
-                375,
-                y,
-                self._euro(
-                    prodotto.get(
-                        "totale_costi_compensi",
-                        0
-                    )
-                )
-            )
-
-            c.drawString(
-                445,
-                y,
-                semaforo
-            )
-
-            c.drawString(
-                515,
-                y,
-                f"{score}/100"
-            )
-
-            y -= 16
-
-        y -= 20
-
-        return y
-
-    def create_quote_pdf(
-        self,
-        data
-    ):
-
+    def create_quote_pdf(self, data):
         now = datetime.now()
+        quote_number, quote_seq = self._next_quote_number(now)
 
         filename = (
-            f"preventivo_{now.strftime('%Y%m%d_%H%M%S')}.pdf"
+            f"preventivo_{now.year}_{quote_seq:03d}_{now.strftime('%Y%m%d_%H%M%S')}.pdf"
         )
-
         path = self.QUOTES_DIR / filename
 
-        cliente = data.get(
-            "cliente",
-            {}
-        )
+        cliente = data.get("cliente", {}) or {}
+        pratica = data.get("pratica", {}) or {}
+        prodotti = data.get("prodotti", []) or []
 
-        pratica = data.get(
-            "pratica",
-            {}
-        )
-
-        prodotti = data.get(
-            "prodotti",
-            []
-        )
-
-        c = canvas.Canvas(
-            str(path),
-            pagesize=A4
-        )
-
+        c = canvas.Canvas(str(path), pagesize=A4)
         width, height = A4
 
-        y = height - 50
-
-        c.setFont(
-            "Helvetica-Bold",
-            18
-        )
-
-        c.drawString(
-            40,
-            y,
-            "KIRON BROKER ENGINE - PREVENTIVO MUTUO"
-        )
-
-        y -= 35
-
-        c.setFont(
-            "Helvetica",
-            10
-        )
-
-        c.drawString(
-            40,
-            y,
-            f"Data preventivo: {now.strftime('%d/%m/%Y %H:%M')}"
-        )
-
-        y -= 30
-
-        c.setFont(
-            "Helvetica-Bold",
-            13
-        )
-
-        c.drawString(
-            40,
-            y,
-            "DATI CLIENTE"
-        )
-
-        y -= 20
-
-        c.setFont(
-            "Helvetica",
-            10
-        )
-
-        c.drawString(
-            40,
-            y,
-            f"Cliente: {cliente.get('nome', '')} {cliente.get('cognome', '')}"
-        )
-
-        y -= 16
-
-        c.drawString(
-            40,
-            y,
-            f"Reddito: {self._euro(cliente.get('reddito', 0))}"
-        )
-
-        y -= 30
-
-        c.setFont(
-            "Helvetica-Bold",
-            13
-        )
-
-        c.drawString(
-            40,
-            y,
-            "DATI PRATICA"
-        )
-
-        y -= 20
-
-        c.setFont(
-            "Helvetica",
-            10
-        )
-
-        c.drawString(
-            40,
-            y,
-            f"Finalità: {pratica.get('finalita', '')}"
-        )
-
-        y -= 16
-
-        c.drawString(
-            40,
-            y,
-            f"Importo mutuo: {self._euro(pratica.get('importo', 0))}"
-        )
-
-        y -= 16
-
-        c.drawString(
-            40,
-            y,
-            f"Valore immobile: {self._euro(pratica.get('valore_immobile', 0))}"
-        )
-
-        y -= 16
-
-        c.drawString(
-            40,
-            y,
-            f"Durata: {pratica.get('durata', '')} anni"
-        )
-
-        y -= 16
-
-        c.drawString(
-            40,
-            y,
-            f"LTV: {self._percent(pratica.get('ltv', 0))}"
-        )
-
-        y -= 35
-
-        y = self._draw_confronto_prodotti(
+        page_num = 1
+        y = self._new_page(c, width, height, quote_number, page_num)
+        y = self._draw_intro(c, y, width)
+        y = self._draw_meta_and_practice(
             c,
             y,
-            height,
-            prodotti
+            width,
+            quote_number,
+            now,
+            cliente,
+            pratica,
         )
 
-        c.setFont(
-            "Helvetica-Bold",
-            13
-        )
+        # Due prodotti per pagina: 1-2 sulla prima, 3-4 sulla seconda,
+        # 5-6 sulla terza, e così via.
+        for index, prodotto in enumerate(prodotti, start=1):
+            position_in_page = (index - 1) % 2
 
-        c.drawString(
-            40,
-            y,
-            "PRODOTTI SELEZIONATI"
-        )
+            if index > 1 and position_in_page == 0:
+                page_num += 1
+                y = self._new_page(c, width, height, quote_number, page_num)
+                c.setFillColor(self.NAVY)
+                c.setFont("Helvetica-Bold", 12)
+                c.drawString(self.PAGE_MARGIN, y, "SOLUZIONI SELEZIONATE")
+                y -= 20
 
-        y -= 25
+            y = self._draw_product_card(c, y, width, index, prodotto)
 
-        for index, prodotto in enumerate(
-            prodotti,
-            start=1
-        ):
-
-            if y < 150:
-
-                c.showPage()
-
-                y = height - 50
-
-            c.setFont(
-                "Helvetica-Bold",
-                11
-            )
-
-            c.drawString(
-                40,
-                y,
-                f"{index}. {prodotto.get('banca', '')} - {prodotto.get('prodotto', '')}"
-            )
-
-            y -= 18
-
-            semaforo = self._semaforo_label(
-                prodotto
-            )
-
-            score = self._score(
-                prodotto.get(
-                    "score",
-                    0
-                )
-            )
-
-            warning_text = ""
-
-            warnings = prodotto.get(
-                "warnings",
-                []
-            )
-
-            if len(warnings) > 0:
-
-                warning_text = " | ".join(
-                    str(warning)
-                    for warning in warnings
-                )
-
-            c.setFont(
-                "Helvetica",
-                10
-            )
-
-            rows = [
-                f"Semaforo: {semaforo}",
-                f"Score banca: {score}/100",
-                f"Listino: {prodotto.get('listino', '')}",
-                f"Importo finanziato: {self._euro(prodotto.get('importo_finanziato', 0))}",
-                f"Rata mensile: {self._euro(prodotto.get('rata', 0))}",
-                f"Tasso finito: {self._percent(prodotto.get('tasso_finito', 0))}",
-                f"Spread: {self._percent(prodotto.get('spread', 0))}",
-                f"Indice: {self._percent(prodotto.get('indice', 0))} {prodotto.get('indice_riferimento', '')}",
-                f"Istruttoria: {self._euro(prodotto.get('istruttoria_euro', 0))}",
-                f"Perizia: {self._euro(prodotto.get('perizia_euro', 0))}",
-                f"Retrocessione: {self._euro(prodotto.get('retrocessione_euro', 0))}",
-                f"Provvigione: {self._euro(prodotto.get('provvigione_euro', 0))}",
-                f"Totale costi/compensi: {self._euro(prodotto.get('totale_costi_compensi', 0))}",
-                f"PDF banca: {prodotto.get('pdf', '')} - pagina {prodotto.get('pagina', '')}"
-            ]
-
-            for row in rows:
-
-                y = self._ensure_space(
-                    c,
-                    y,
-                    height,
-                    90
-                )
-
-                c.drawString(
-                    55,
-                    y,
-                    row
-                )
-
-                y -= 15
-
-            if warning_text != "":
-
-                y = self._ensure_space(
-                    c,
-                    y,
-                    height,
-                    90
-                )
-
-                c.setFont(
-                    "Helvetica-Bold",
-                    10
-                )
-
-                c.drawString(
-                    55,
-                    y,
-                    "ATTENZIONE / MOTIVAZIONI:"
-                )
-
-                y -= 15
-
-                c.setFont(
-                    "Helvetica",
-                    9
-                )
-
-                for warning in warnings:
-
-                    y = self._ensure_space(
-                        c,
-                        y,
-                        height,
-                        70
-                    )
-
-                    c.drawString(
-                        65,
-                        y,
-                        f"- {str(warning)[:95]}"
-                    )
-
-                    y -= 14
-
-            motivi_esclusione = prodotto.get(
-                "motivi_esclusione",
-                []
-            )
-
-            if len(motivi_esclusione) > 0:
-
-                y = self._ensure_space(
-                    c,
-                    y,
-                    height,
-                    90
-                )
-
-                c.setFont(
-                    "Helvetica-Bold",
-                    10
-                )
-
-                c.drawString(
-                    55,
-                    y,
-                    "MOTIVI DI ESCLUSIONE:"
-                )
-
-                y -= 15
-
-                c.setFont(
-                    "Helvetica",
-                    9
-                )
-
-                for motivo in motivi_esclusione:
-
-                    y = self._ensure_space(
-                        c,
-                        y,
-                        height,
-                        70
-                    )
-
-                    c.drawString(
-                        65,
-                        y,
-                        f"- {str(motivo)[:95]}"
-                    )
-
-                    y -= 14
-
-            y -= 15
 
         c.save()
 
         quote_item = {
             "filename": filename,
+            "quote_number": quote_number,
+            "quote_year": now.year,
+            "quote_seq": quote_seq,
             "created_at": now.strftime("%d/%m/%Y %H:%M"),
             "created_at_sort": now.strftime("%Y%m%d%H%M%S"),
             "cliente": f"{cliente.get('nome', '')} {cliente.get('cognome', '')}".strip(),
-            "importo": pratica.get(
-                "importo",
-                0
-            ),
-            "durata": pratica.get(
-                "durata",
-                ""
-            ),
-            "prodotti": len(
-                prodotti
-            ),
-            "path": str(
-                path
-            )
+            "importo": pratica.get("importo", 0),
+            "durata": pratica.get("durata", ""),
+            "prodotti": len(prodotti),
+            "path": str(path),
         }
 
-        registry = self._load_json(
-            self.REGISTRY_FILE
-        )
-
-        registry.append(
-            quote_item
-        )
-
-        self._save_json(
-            self.REGISTRY_FILE,
-            registry
-        )
-
-        self._update_clients_registry(
-            quote_item
-        )
+        registry = self._load_json(self.REGISTRY_FILE)
+        registry.append(quote_item)
+        self._save_json(self.REGISTRY_FILE, registry)
+        self._update_clients_registry(quote_item)
 
         return {
             "success": True,
             "filename": filename,
-            "path": str(
-                path
-            )
+            "quote_number": quote_number,
+            "path": str(path),
         }

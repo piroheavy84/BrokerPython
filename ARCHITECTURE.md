@@ -1,7 +1,7 @@
 # KIRON BROKER ENGINE - ARCHITECTURE
 
-Versione: 1.0  
-Ultimo aggiornamento: 28/06/2026
+Versione: 1.1
+Ultimo aggiornamento: 29/06/2026
 
 ---
 
@@ -16,7 +16,13 @@ FastAPI Backend
         ↓
 Broker Engine
         ↓
-PDF Parser / AI / BankRule Engine
+PDF Parser
+        ↓
+Page Knowledge Engine
+        ↓
+BankRule Engine
+        ↓
+Eligibility Engine
 ```
 
 ---
@@ -33,7 +39,7 @@ Responsabilità:
 - risultati ricerca;
 - generazione preventivo PDF.
 
-Il frontend NON deve contenere logica bancaria complessa.
+Il frontend NON deve contenere logica bancaria.
 
 ---
 
@@ -47,10 +53,10 @@ api.py
 
 Responsabilità:
 
-- ricevere richieste dal frontend;
+- ricevere richieste;
 - coordinare i servizi;
-- esporre endpoint REST;
-- restituire JSON strutturato.
+- esporre API REST;
+- restituire JSON.
 
 ---
 
@@ -65,6 +71,11 @@ RatesService
 QuotePdfService
 BankEligibilityService
 BankMemoryConfirmService
+PageKnowledgeBuilder
+RuleBuilder
+RuleCleaner
+RuleValidator
+HeaderParser
 ```
 
 ---
@@ -73,182 +84,401 @@ BankMemoryConfirmService
 
 ```text
 PDF originale
-      ↓
+        ↓
 PdfDocumentReader
-      ↓
-Page / Blocks
-      ↓
-PdfPreviewService
-      ↓
-PdfGapAnalyzerService
-      ↓
+        ↓
+PageAnalyzer
+        ↓
+RuleBuilder
+        ↓
+RuleCleaner
+        ↓
+RuleValidator
+        ↓
+PageKnowledgeBuilder
+        ↓
+PageKnowledge
+        ├── Header
+        ├── Products
+        ├── MarketIndexes
+        ├── Costs
+        ├── Conditions
+        ├── Exceptions
+        ├── Notes
+        └── RawText
+        ↓
 BankRuleBuilder
-      ↓
+        ↓
+BankRule[]
+        ↓
 BankMemory
-```
-
----
-
-# Pipeline futura AI
-
-```text
-PDF Page Text
-      ↓
-AI Knowledge Extractor
-      ↓
-JSON strutturato
-      ↓
-BankRuleBuilder
-      ↓
-BankRule
-      ↓
-BankMemory
-      ↓
+        ↓
 Eligibility Engine
 ```
 
 ---
 
-# Principio chiave
+# PageKnowledge
 
-Il parser legge il PDF.
+PageKnowledge rappresenta tutta la conoscenza estratta da una singola pagina del PDF.
+
+Non contiene logica.
+
+Contiene solamente informazioni strutturate.
+
+```text
+PageKnowledge
+
+page
+
+header
+
+products
+
+market_indexes
+
+costs
+
+conditions
+
+exceptions
+
+notes
+
+raw_text
+```
+
+Ogni pagina produce un solo PageKnowledge.
+
+---
+
+# Products
+
+I prodotti rappresentano esclusivamente le offerte commerciali.
+
+Esempio:
+
+```text
+Mutuo Acquisto
+
+Fisso
+
+Variabile
+
+Cap
+
+Floor
+
+Durata
+
+LTV
+
+Spread
+```
+
+---
+
+# Market Indexes
+
+Contiene gli indici di riferimento.
+
+Esempi:
+
+```text
+IRS
+
+EURIBOR
+
+BCE
+```
+
+Questi dati saranno utilizzati dal motore di calcolo tassi.
+
+---
+
+# Costs
+
+Contiene tutti i costi presenti nel PDF.
+
+Esempi:
+
+```text
+Spese istruttoria
+
+Perizia
+
+Incasso rata
+
+Polizze
+
+Commissioni
+```
+
+Questi dati saranno utilizzati dal preventivatore.
+
+---
+
+# Conditions
+
+Contiene tutte le condizioni tecniche.
+
+Esempi:
+
+```text
+CAP
+
+FLOOR
+
+TAN
+
+TAEG
+
+Periodicità
+
+Parametro di indicizzazione
+```
+---
+
+# Exceptions
+
+Le eccezioni rappresentano regole non tabellari.
+
+Esempi:
+
+```text
+LTC 95
+
+GREEN
+
+CONSAP
+
+GARANZIE
+
+DEROGHE
+```
+
+Queste informazioni saranno trasformate successivamente in `BankRule`.
+
+---
+
+# Notes
+
+Contiene testo libero non ancora strutturato.
+
+Serve come supporto all'AI e come audit del parser.
+
+---
+
+# RawText
+
+Conserva il testo originale della pagina.
+
+Non deve mai essere modificato.
+
+Serve per:
+
+- audit;
+- debugging;
+- AI;
+- ricostruzione della pagina.
+
+---
+
+# Pipeline AI
+
+```text
+RawText
+        ↓
+AI Knowledge Extractor
+        ↓
+ExtractedRule[]
+        ↓
+BankRuleBuilder
+        ↓
+BankRule[]
+```
 
 L'AI interpreta il significato.
 
-Il BankRule Engine valuta la pratica.
+Non legge direttamente il PDF.
 
-Questi tre livelli devono restare separati.
+Lavora esclusivamente sul contenuto di `PageKnowledge`.
 
 ---
 
 # BankRule Engine
 
-Ogni regola bancaria deve essere rappresentata da:
+Ogni regola bancaria deve essere rappresentata come:
 
 ```text
 BankRule
-```
 
-con:
-
-```text
 type
+
 title
+
 description
+
 parameters
+
 source_page
+
 confidence
 ```
 
+Le banche NON devono essere codificate nel motore.
+
+Il motore conosce solo `BankRule`.
+
 ---
 
-# Esempio LTC_EXCEPTION
+# Esempio
 
-```json
-{
-  "type": "LTC_EXCEPTION",
-  "title": "Mutuo LTC",
-  "description": "Deroga fino al 95% con perizia superiore al prezzo",
-  "parameters": {
-    "purchase_ltv": 95,
-    "perizia_ltv": 80,
-    "spread_bps": 40,
-    "requires_appraisal_value": true,
-    "applies_to_rate_types": ["FISSO", "VARIABILE"]
-  },
-  "source_page": 2,
-  "confidence": 0.98
-}
+```text
+RuleType
+
+LTC_EXCEPTION
+
+Parameters
+
+purchase_ltv_max = 95
+
+appraisal_ltv_max = 80
+
+spread_adjustment_bps = 40
+
+requires_appraisal_gt_purchase = true
 ```
 
 ---
 
 # Eligibility Engine
 
-Il motore di eleggibilità non deve conoscere il layout del PDF.
-
-Deve ricevere:
+Input:
 
 ```text
 Practice
+
++
+
 BankRule[]
 ```
 
-e restituire:
+Output:
 
 ```text
-eligible
-warnings
-score
-extra_spread
-reason
+Eligible
+
+Warnings
+
+Score
+
+ExtraSpread
+
+Reason
 ```
+
+L'Eligibility Engine non deve conoscere:
+
+- PDF
+- layout
+- banca
+- parser
+
+Conosce solamente le regole.
 
 ---
 
-# Regola architetturale fondamentale
+# Regola fondamentale
 
-Non aggiungere mai logica del tipo:
+È vietato introdurre codice come:
 
 ```python
 if banca == "CheBanca":
 ```
 
-La banca deve essere descritta da BankRule, non da codice hardcoded.
+oppure
+
+```python
+if pdf_name == ...
+```
+
+oppure qualsiasi altra eccezione specifica.
+
+Ogni comportamento deve derivare dalle `BankRule`.
 
 ---
 
-# Dati e memoria
+# Obiettivo finale
 
-La memoria banca deve distinguere tra:
-
-## Memoria documentale
-
-Cosa era scritto nel PDF:
+L'aggiunta di una nuova banca dovrà essere:
 
 ```text
-pagina
-testo
-blocchi
-frasi
-```
+Carico PDF
 
-## Memoria decisionale
+↓
 
-Cosa il motore ha capito:
+Parser
 
-```text
+↓
+
+PageKnowledge
+
+↓
+
 BankRule
-parameters
-confidence
-```
 
----
-
-# Obiettivo architetturale
-
-Rendere il sistema capace di aggiungere nuove banche senza modificare il motore centrale.
-
-Aggiungere una banca deve significare:
-
-```text
-carico PDF
 ↓
-estraggo regole
+
+Conferma operatore
+
 ↓
-confermo
+
+BankMemory
+
 ↓
-motore pronto
+
+Eligibility Engine
+
+↓
+
+Preventivatore
+
+↓
+
+Motore esperto
 ```
 
 ---
 
 # Convenzione di sviluppo
 
-Ogni nuovo modulo deve rispettare questi principi:
+Ogni modulo deve:
 
-- singola responsabilità;
-- input e output chiari;
-- nessuna dipendenza dal layout specifico della banca;
-- testabile isolatamente;
-- compatibile con BankRule.
+- avere una sola responsabilità;
+- essere testabile isolatamente;
+- non conoscere banche specifiche;
+- produrre input/output chiari;
+- essere riutilizzabile;
+- essere compatibile con `BankRule`;
+- essere compatibile con `PageKnowledge`;
+- ridurre il debito tecnico;
+- evitare duplicazioni;
+- mantenere la separazione tra Parser, AI e Motore Decisionale.
+
+---
+
+# Visione del progetto
+
+KIRON Broker Engine non è un parser PDF.
+
+È un motore esperto capace di:
+
+- leggere documentazione bancaria;
+- comprenderne il significato;
+- costruire una memoria strutturata;
+- trasformare la conoscenza in regole;
+- valutare automaticamente l'eleggibilità delle pratiche;
+- supportare il consulente senza logiche hardcoded.
+
+Ogni evoluzione futura dovrà rispettare questa architettura.

@@ -18,7 +18,8 @@ class SearchResult:
         canalizzazione_da="",
         canalizzazione_a="",
         stipula_entro="",
-        condition=None
+        condition=None,
+        extra=None,
     ):
 
         self.banca = banca
@@ -38,6 +39,11 @@ class SearchResult:
         self.canalizzazione_a = canalizzazione_a
         self.stipula_entro = stipula_entro
         self.condition = condition
+
+        # Campi opzionali generati dal RuleEngine, es. prodotto LTC.
+        self.extra = extra or {}
+        for key, value in self.extra.items():
+            setattr(self, key, value)
 
     def __repr__(self):
 
