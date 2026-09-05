@@ -9,12 +9,20 @@ class ImportDiagnosticService:
     def _slug(self, value):
         return str(value or "").lower().replace(" ", "_")
 
+    def _load_json(self, path, default):
+        if not os.path.exists(path):
+            return default
+        with open(path, "r", encoding="utf-8") as handle:
+            return json.load(handle)
+
     def _load_rules(self, banca):
         path = os.path.join("output", f"{self._slug(banca)}_index.json")
-        if not os.path.exists(path):
-            return [], path
-        with open(path, "r", encoding="utf-8") as handle:
-            data = json.load(handle)
+        data = self._load_json(path, [])
+        return data if isinstance(data, list) else [], path
+
+    def _load_knowledge(self, banca):
+        path = os.path.join("output", f"{self._slug(banca)}_knowledge.json")
+        data = self._load_json(path, [])
         return data if isinstance(data, list) else [], path
 
     def _sort_values(self, values):
@@ -49,6 +57,39 @@ class ImportDiagnosticService:
         if maximum is None:
             maximum = rule.get("ltv_max")
         return f"{ratio_type} <= {maximum}%" if maximum is not None else f"{ratio_type} MANCANTE"
+
+    def _commercial_summary(self, banca):
+        knowledge, path = self._load_knowledge(banca)
+        by_type = Counter()
+        per_page = []
+        warnings = []
+        total = 0
+
+        for page in knowledge:
+            rules = page.get("commercial_rules") or []
+            page_warnings = page.get("commercial_warnings") or []
+            if not rules and not page_warnings:
+                continue
+            page_types = Counter(str(r.get("rule_type") or "MANCANTE") for r in rules)
+            total += len(rules)
+            by_type.update(page_types)
+            warnings.extend(page_warnings)
+            per_page.append({
+                "pagina": page.get("page"),
+                "numero_regole": len(rules),
+                "tipi": dict(page_types),
+                "warning": page_warnings,
+                "regole": rules,
+            })
+
+        return {
+            "knowledge": path,
+            "numero_regole": total,
+            "tipi": dict(by_type),
+            "numero_warning": len(warnings),
+            "warning": warnings,
+            "per_pagina": per_page,
+        }
 
     def build(self, banca):
         rules, path = self._load_rules(banca)
@@ -118,4 +159,5 @@ class ImportDiagnosticService:
             "per_pagina": pages,
             "anomalie": anomalie[:200],
             "numero_anomalie": len(anomalie),
+            "commerciale": self._commercial_summary(banca),
         }
