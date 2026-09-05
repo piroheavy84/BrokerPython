@@ -5,11 +5,11 @@ def test_discount_parser_separates_cca_white_label_addebito_and_green():
     parser = StructuredCommercialRulesParser()
     text = (
         "Riepilogo scontistiche ING. "
-        "1) Sconto CCA (Conto Corrente Arancio): su tutti i prodotti -0,30% per tutta la durata dell'ammortamento. "
+        "1) ScontoCCA (Conto Corrente Arancio): su tutti i prodotti -0,30%per tutta la durata dell'ammortamento. "
         "Requisiti: Accredito stipendio/pensione o entrata di almeno 1.000 Euro mensili entro 6 mesi dall'erogazione. "
         "Addebito rata su CCA. Mantenimento di quanto sopra per tutta la durata del mutuo. "
         "Specifiche: lo sconto va applicato solo sulla quota interessi, non quota capitale. "
-        "2) Destinatari della promozione: Nuovi richiedenti mutuo White Label che abbiano un MRI (soglia di sussistenza) > 1.500 Euro. "
+        "2) Destinatari della promozione: Nuovi richiedenti mutuo White Label che abbiano un MRI (soglia di sussistenza) > 1.500 Euro "
         "Sconto su mutui tasso variabile, fisso, fisso rinegoziabile: -0,25% per tutta la durata dell'ammortamento. "
         "Lo sconto è cumulabile con lo sconto di 0,20% per addebito rate mutuo su Conto Corrente Arancio. "
         "3) Sconto green: in caso di mutuo acquisto, se l'immobile è di classe energetica B, A o superiore, è possibile ricevere automaticamente lo sconto di 20bps."
@@ -36,6 +36,13 @@ def test_discount_parser_separates_cca_white_label_addebito_and_green():
     green = next(r for r in rules if r["discount_type"] == "GREEN")
     assert green["basis_points"] == 20
     assert green["percent"] == 0.20
+
+
+def test_white_label_is_not_created_without_white_label_context():
+    parser = StructuredCommercialRulesParser()
+    text = "MRI (soglia di sussistenza) > 1.500 Euro. Sconto su mutui tasso variabile, fisso, fisso rinegoziabile: -0,25% per tutta la durata dell'ammortamento."
+    rules, _ = parser._parse_discounts(text, 6)
+    assert not any(r.get("discount_type") == "MRI_WHITE_LABEL" for r in rules)
 
 
 def test_retrocession_table_parses_tiers_and_fixed_columns():
