@@ -40,7 +40,6 @@ class StructuredCommercialRulesParser:
         rules = []
         warnings = []
 
-        # 1) Sconto CCA principale: -0,30% su tutti i prodotti.
         cca = re.search(r"Sconto\s*CCA\s*\(Conto Corrente Arancio\).*?su tutti i prodotti\s*-?\s*(\d+[,.]\d+)\s*%\s*per tutta la durata dell.?ammortamento", normalized, re.I)
         if cca:
             rules.append({
@@ -57,22 +56,35 @@ class StructuredCommercialRulesParser:
                 "page": page, "source_text": cca.group(0),
             })
 
-        # 2) White Label: -0,25% se MRI > 1.500 Euro.
-        mri = re.search(r"MRI\s*\([^)]*soglia di sussistenza[^)]*\)\s*>\s*([\d.]+)\s*Euro.*?Sconto su mutui.*?-?\s*(\d+[,.]\d+)\s*%\s*per tutta la durata dell.?ammortamento", normalized, re.I)
-        if mri:
+        # White Label: il PDF reale può spezzare/spaziare diversamente MRI e la riga dello sconto.
+        # Cerchiamo quindi soglia e percentuale separatamente, ma solo nel contesto White Label.
+        white_label_context = re.search(
+            r"Nuovi\s+richiedenti\s+mutuo\s+White\s*Label.*?MRI.*?>\s*([\d.]+)\s*Euro",
+            normalized,
+            re.I,
+        )
+        white_label_discount = re.search(
+            r"Sconto\s+su\s+mutui\s+tasso\s+variabile,?\s*fisso,?\s*fisso\s+rinegoziabile\s*:\s*-?\s*(\d+[,.]\d+)\s*%\s*per\s+tutta\s+la\s+durata\s+dell.?ammortamento",
+            normalized,
+            re.I,
+        )
+        if white_label_context and white_label_discount:
+            source_start = white_label_context.start()
+            source_end = white_label_discount.end()
             rules.append({
                 "rule_type": "DISCOUNT", "discount_type": "MRI_WHITE_LABEL",
                 "name": "Promozione nuovi richiedenti mutuo White Label con MRI superiore alla soglia",
-                "percent": self._pct(mri.group(2)), "mri_min_exclusive": self._money(mri.group(1)),
+                "percent": self._pct(white_label_discount.group(1)),
+                "mri_min_exclusive": self._money(white_label_context.group(1)),
                 "customer_requirement": "NUOVO_RICHIEDENTE_MUTUO_WHITE_LABEL",
                 "rate_types": ["VARIABILE", "FISSO", "FISSO_RINEGOZIABILE"],
                 "scope": "TUTTI_TIPI_TASSO_E_FINALITA_INCLUSO_HLTV",
                 "duration": "TUTTA_DURATA_AMMORTAMENTO", "cumulative": True,
                 "cumulative_with": ["CCA_ADDEBITO_RATA_020"],
-                "page": page, "source_text": mri.group(0),
+                "page": page,
+                "source_text": normalized[source_start:source_end],
             })
 
-        # Specifica della promozione White Label: ulteriore -0,20% per addebito rata su CCA.
         addebito = re.search(r"cumulabile con lo sconto di\s*(\d+[,.]\d+)\s*%\s*per addebito rate mutuo su Conto Corrente Arancio", normalized, re.I)
         if addebito:
             rules.append({
@@ -85,7 +97,6 @@ class StructuredCommercialRulesParser:
                 "page": page, "source_text": addebito.group(0),
             })
 
-        # 3) Green: 20 bps automatici per acquisto classe B, A o superiore.
         green = re.search(r"Sconto\s+green.*?mutuo\s+acquisto.*?classe\s+energetica\s+[\"“]?B[\"”]?,\s*[\"“]?A[\"”]?\s+o\s+superiore.*?sconto\s+di\s+(\d+)\s*bps", normalized, re.I)
         if green:
             bps = int(green.group(1))
