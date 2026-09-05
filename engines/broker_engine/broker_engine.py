@@ -47,6 +47,11 @@ class BrokerEngine:
 
         if knowledge:
             candidate_rules = rule_engine.apply(candidate_rules, richiesta, knowledge)
+            candidate_rules = self._decorate_commercial_promotions(
+                candidate_rules,
+                richiesta,
+                knowledge,
+            )
 
         risultati = []
         for rule in candidate_rules:
@@ -98,6 +103,157 @@ class BrokerEngine:
             "green_limite_importo", "green_limite_importo_applicato", "green_note_applicazione", "green_requisiti",
             "green_rule_page", "pagina_regola_green", "applied_rules", "rule_checks", "warnings"]
         return {key: rule.get(key) for key in extra_keys if key in rule}
+
+    def _decorate_commercial_promotions(self, rules, richiesta, knowledge):
+        if not rules or not knowledge:
+            return rules
+
+        by_bank = {}
+        for page in knowledge:
+            if not isinstance(page, dict):
+                continue
+            bank = str(page.get("banca") or "").strip()
+            if not bank:
+                # Le knowledge precedenti non avevano banca. Le ignoriamo per
+                # evitare che una promozione venga applicata all'istituto errato.
+                continue
+            for commercial in page.get("commercial_rules") or []:
+                if str(commercial.get("rule_type") or "").upper() != "DISCOUNT":
+                    continue
+                item = dict(commercial)
+                item.setdefault("page", page.get("page"))
+                by_bank.setdefault(bank.lower(), []).append(item)
+
+        decorated = []
+        for original in rules:
+            rule = dict(original)
+            discounts = by_bank.get(str(rule.get("banca") or "").strip().lower(), [])
+            if not discounts:
+                decorated.append(rule)
+                continue
+
+            relevant = [d for d in discounts if self._commercial_finalita_matches(d, richiesta)]
+            if not relevant:
+                decorated.append(rule)
+                continue
+
+            applied_green = None
+            for discount in relevant:
+                if str(discount.get("discount_type") or "").upper() != "GREEN":
+                    continue
+                if discount.get("automatic") is not True:
+                    continue
+                if not self._commercial_energy_matches(discount, richiesta):
+                    continue
+                if str(rule.get("promozione") or "").upper() == "GREEN" or rule.get("green_sconto"):
+                    # Green già gestito dal RuleEngine (es. CheBanca): non duplicare.
+                    applied_green = discount
+                    break
+                try:
+                    percent = float(discount.get("percent") or 0.0)
+                except (TypeError, ValueError):
+                    percent = 0.0
+                if percent <= 0:
+                    continue
+
+                base_value = self._rate_value(
+                    rule.get("tasso_finito_pdf") if rule.get("tasso_esplicito") else rule.get("spread")
+                )
+                if base_value is None:
+                    continue
+                discounted = max(0.0, base_value - percent)
+
+                if rule.get("tasso_esplicito"):
+                    rule["spread_base"] = rule.get("tasso_finito_pdf") or rule.get("spread")
+                    rule["tasso_finito_pdf"] = self._rate_label(discounted)
+                    rule["spread"] = self._rate_label(discounted)
+                else:
+                    rule["spread_base"] = rule.get("spread")
+                    rule["spread"] = self._rate_label(discounted)
+
+                rule["spread_delta"] = -percent
+                rule["prodotto_speciale"] = True
+                rule["promozione"] = "GREEN"
+                rule["green_tipo"] = "COMMERCIAL_RULE"
+                rule["green_tipo_label"] = "Sconto Green automatico da regola commerciale"
+                rule["green_sconto"] = percent
+                rule["green_sconto_bps"] = discount.get("basis_points") or round(percent * 100)
+                rule["green_finalita"] = getattr(richiesta, "finalita", "")
+                rule["green_classe_energetica"] = getattr(richiesta, "classe_energetica", "")
+                rule["green_rule_page"] = discount.get("page")
+                rule["pagina_regola_green"] = discount.get("page")
+                applied_green = discount
+                break
+
+            summary = self._commercial_summary(relevant, applied_green)
+            if summary:
+                existing_note = str(rule.get("motivo_prodotto_speciale") or "").strip()
+                rule["motivo_prodotto_speciale"] = (
+                    f"{existing_note} | {summary}" if existing_note else summary
+                )
+                rule["prodotto_speciale"] = True
+                if not rule.get("promozione"):
+                    rule["promozione"] = "COMMERCIAL_RULES"
+
+            decorated.append(rule)
+        return decorated
+
+    def _commercial_finalita_matches(self, discount, richiesta):
+        finalita = discount.get("finalita")
+        if not finalita:
+            return True
+        try:
+            return self.finalita_normalizer.match(
+                getattr(richiesta, "finalita", ""),
+                finalita,
+            )
+        except Exception:
+            requested = str(getattr(richiesta, "finalita", "") or "").upper()
+            values = finalita if isinstance(finalita, list) else [finalita]
+            return any(str(value or "").upper() in requested for value in values)
+
+    def _commercial_energy_matches(self, discount, richiesta):
+        allowed = [self._energy_norm(v) for v in (discount.get("classi_energetiche") or [])]
+        if not allowed:
+            return True
+        requested = self._energy_norm(getattr(richiesta, "classe_energetica", ""))
+        if not requested:
+            return False
+        if requested in allowed:
+            return True
+        if "A_SUPERIORE" in allowed and requested.startswith("A"):
+            return True
+        return False
+
+    def _commercial_summary(self, discounts, applied_green):
+        rows = []
+        for discount in discounts:
+            name = str(discount.get("name") or discount.get("discount_type") or "Sconto").strip()
+            try:
+                percent = float(discount.get("percent") or 0.0)
+            except (TypeError, ValueError):
+                percent = 0.0
+            if percent <= 0:
+                continue
+            status = " applicato automaticamente" if discount is applied_green else " da verificare"
+            rows.append(f"{name} -{percent:.2f}%{status}")
+        if not rows:
+            return ""
+        return "Scontistiche commerciali: " + "; ".join(rows)
+
+    def _rate_value(self, value):
+        try:
+            return float(str(value).replace("%", "").replace(",", ".").strip())
+        except (TypeError, ValueError):
+            return None
+
+    def _rate_label(self, value):
+        return f"{float(value):.2f}%".replace(".", ",")
+
+    def _energy_norm(self, value):
+        text = str(value or "").strip().upper().replace(" ", "_")
+        text = text.replace("+", "_SUPERIORE")
+        return text
 
     def _is_ltc_candidate_rule(self, rule, richiesta, rule_engine):
         try:
