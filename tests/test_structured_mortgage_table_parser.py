@@ -31,8 +31,6 @@ def test_structured_table_builds_finalities_and_carries_merged_spreads():
         start_id=1,
     )
 
-    # ACQUISTO: 2 colonne. SURROGA e SOSTITUZIONE: 2 colonne x 2 finalità.
-    # Tre righe durata => 18 regole.
     assert len(rules) == 18
 
     inherited = [
