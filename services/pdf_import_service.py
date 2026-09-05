@@ -10,6 +10,7 @@ from services.json_database import JsonDatabase
 from services.rule_validator import RuleValidator
 from services.error_database import ErrorDatabase
 from services.page_knowledge_builder import PageKnowledgeBuilder
+from services.structured_mortgage_table_parser import StructuredMortgageTableParser
 
 
 class PdfImportService:
@@ -25,6 +26,7 @@ class PdfImportService:
         self.validator = RuleValidator()
         self.error_db = ErrorDatabase()
         self.knowledge_builder = PageKnowledgeBuilder()
+        self.structured_table_parser = StructuredMortgageTableParser()
 
         Path("output").mkdir(exist_ok=True)
 
@@ -100,6 +102,55 @@ class PdfImportService:
 
         return "\n".join(rows)
 
+    def _decorate_and_validate_rule(
+        self,
+        rule,
+        banca,
+        pdf_name,
+        tasso_esplicito,
+        default_page=None,
+    ):
+
+        rule = self.cleaner.clean(rule)
+        rule["banca"] = banca
+        rule["pdf"] = pdf_name
+        rule["pagina"] = rule.get("pagina") or default_page
+        rule["tasso_esplicito"] = tasso_esplicito
+        rule["indice_riferimento"] = None
+
+        if tasso_esplicito:
+            rule["tasso_finito_pdf"] = rule.get("spread", None)
+        else:
+            rule["tasso_finito_pdf"] = None
+
+        return rule, self.validator.validate(rule)
+
+    def _build_page_knowledge(self, documento, rules_ok):
+
+        rules_by_page = {}
+        for rule in rules_ok:
+            rules_by_page.setdefault(rule.get("pagina"), []).append(rule)
+
+        page_knowledge = []
+
+        for pagina in documento:
+            model = self.analyzer.analyze(
+                pagina["pagina"],
+                pagina["blocchi"]
+            )
+            raw_text = self._blocks_to_text(
+                pagina.get("blocchi", [])
+            )
+            knowledge = self.knowledge_builder.build(
+                page_number=model.page,
+                header_blocks=model.header,
+                product_rules=rules_by_page.get(model.page, []),
+                raw_text=raw_text
+            )
+            page_knowledge.append(knowledge.to_dict())
+
+        return page_knowledge
+
     def import_pdf(
         self,
         banca,
@@ -113,8 +164,9 @@ class PdfImportService:
 
         rules_ok = []
         rules_error = []
-        page_knowledge = []
 
+        # Primo passaggio: parser legacy. Se produce regole, il comportamento
+        # esistente resta invariato (regressione zero per banche già supportate).
         for pagina in documento:
 
             model = self.analyzer.analyze(
@@ -123,8 +175,6 @@ class PdfImportService:
             )
 
             header = model.header[0] if len(model.header) > 0 else []
-
-            page_rules_ok = []
 
             for blocco in model.products:
 
@@ -135,31 +185,17 @@ class PdfImportService:
 
                 for rule in rules:
 
-                    rule = self.cleaner.clean(rule)
-
-                    rule["banca"] = banca
-                    rule["pdf"] = pdf_name
-                    rule["pagina"] = model.page
-                    rule["tasso_esplicito"] = tasso_esplicito
-                    rule["indice_riferimento"] = None
-
-                    if tasso_esplicito:
-                        rule["tasso_finito_pdf"] = rule.get(
-                            "spread",
-                            None
-                        )
-                    else:
-                        rule["tasso_finito_pdf"] = None
-
-                    errori = self.validator.validate(rule)
+                    rule, errori = self._decorate_and_validate_rule(
+                        rule=rule,
+                        banca=banca,
+                        pdf_name=pdf_name,
+                        tasso_esplicito=tasso_esplicito,
+                        default_page=model.page,
+                    )
 
                     if len(errori) == 0:
-
                         rules_ok.append(rule)
-                        page_rules_ok.append(rule)
-
                     else:
-
                         rules_error.append(
                             {
                                 "rule": rule,
@@ -167,23 +203,43 @@ class PdfImportService:
                             }
                         )
 
-            raw_text = self._blocks_to_text(
-                pagina.get(
-                    "blocchi",
-                    []
+        # Secondo passaggio: solo se il parser legacy non ha prodotto alcuna
+        # regola, proviamo le vere tabelle PDF (Tipo tasso + Durata + LTV/LTC).
+        # Non c'è alcun controllo sul nome banca.
+        if len(rules_ok) == 0:
+            fallback_rules = self.structured_table_parser.parse(pdf_path)
+            fallback_ok = []
+            fallback_errors = []
+
+            for rule in fallback_rules:
+                rule, errori = self._decorate_and_validate_rule(
+                    rule=rule,
+                    banca=banca,
+                    pdf_name=pdf_name,
+                    tasso_esplicito=tasso_esplicito,
+                    default_page=rule.get("pagina"),
                 )
-            )
 
-            knowledge = self.knowledge_builder.build(
-                page_number=model.page,
-                header_blocks=model.header,
-                product_rules=page_rules_ok,
-                raw_text=raw_text
-            )
+                if len(errori) == 0:
+                    fallback_ok.append(rule)
+                else:
+                    fallback_errors.append(
+                        {
+                            "rule": rule,
+                            "errori": errori
+                        }
+                    )
 
-            page_knowledge.append(
-                knowledge.to_dict()
-            )
+            # Se il fallback ha davvero riconosciuto un listino, sostituisce
+            # l'eventuale rumore/errori del primo passaggio.
+            if fallback_ok:
+                rules_ok = fallback_ok
+                rules_error = fallback_errors
+
+        page_knowledge = self._build_page_knowledge(
+            documento,
+            rules_ok,
+        )
 
         nome_output = self._slug(banca)
 
