@@ -78,7 +78,7 @@ class PdfImportService:
             rule["tasso_finito_pdf"] = None
         return rule, self.validator.validate(rule)
 
-    def _build_page_knowledge(self, documento, rules_ok):
+    def _build_page_knowledge(self, documento, rules_ok, banca, pdf_name):
         rules_by_page = {}
         for rule in rules_ok:
             rules_by_page.setdefault(rule.get("pagina"), []).append(rule)
@@ -92,8 +92,13 @@ class PdfImportService:
                 header_blocks=model.header,
                 product_rules=rules_by_page.get(model.page, []),
                 raw_text=raw_text
-            )
-            page_knowledge.append(knowledge.to_dict())
+            ).to_dict()
+            # Metadati indispensabili quando PracticeService unisce le knowledge
+            # di tutte le banche: impediscono che una promo venga applicata a
+            # prodotti appartenenti a un altro istituto.
+            knowledge["banca"] = banca
+            knowledge["pdf"] = pdf_name
+            page_knowledge.append(knowledge)
         return page_knowledge
 
     def _attach_commercial_rules(self, page_knowledge, commercial_by_page):
@@ -155,7 +160,12 @@ class PdfImportService:
                 rules_ok = structured_ok
                 rules_error = structured_errors
 
-        page_knowledge = self._build_page_knowledge(documento, rules_ok)
+        page_knowledge = self._build_page_knowledge(
+            documento,
+            rules_ok,
+            banca=banca,
+            pdf_name=pdf_name,
+        )
 
         # Secondo canale strutturato: promozioni, retrocessioni, CPI e limiti
         # commerciali. Queste informazioni NON entrano nell'index prodotti.
