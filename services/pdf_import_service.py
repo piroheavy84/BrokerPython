@@ -12,6 +12,7 @@ from services.error_database import ErrorDatabase
 from services.page_knowledge_builder import PageKnowledgeBuilder
 from services.structured_mortgage_table_parser import StructuredMortgageTableParser
 from services.structured_commercial_rules_parser import StructuredCommercialRulesParser
+from services.commercial_ai_fallback import CommercialAiFallback
 
 
 class PdfImportService:
@@ -28,6 +29,7 @@ class PdfImportService:
         self.knowledge_builder = PageKnowledgeBuilder()
         self.structured_table_parser = StructuredMortgageTableParser()
         self.commercial_rules_parser = StructuredCommercialRulesParser()
+        self.commercial_ai_fallback = CommercialAiFallback()
         Path("output").mkdir(exist_ok=True)
 
     def _slug(self, value):
@@ -158,6 +160,14 @@ class PdfImportService:
         # Secondo canale strutturato: promozioni, retrocessioni, CPI e limiti
         # commerciali. Queste informazioni NON entrano nell'index prodotti.
         commercial_by_page = self.commercial_rules_parser.parse(pdf_path)
+
+        # Se il parser deterministico lascia una percentuale promozionale non
+        # coperta e la chiave AI e' configurata, l'AI prova a completare SOLO
+        # quella parte. Le regole AI vengono validate, marcate e deduplicate.
+        commercial_by_page = self.commercial_ai_fallback.enrich(
+            pdf_path,
+            commercial_by_page,
+        )
         page_knowledge = self._attach_commercial_rules(page_knowledge, commercial_by_page)
 
         nome_output = self._slug(banca)
@@ -172,6 +182,12 @@ class PdfImportService:
         now = datetime.now().strftime("%d/%m/%Y %H:%M")
         commercial_count = sum(len(v.get("rules", [])) for v in commercial_by_page.values())
         commercial_warning_count = sum(len(v.get("warnings", [])) for v in commercial_by_page.values())
+        ai_commercial_count = sum(
+            1
+            for payload in commercial_by_page.values()
+            for rule in payload.get("rules", [])
+            if rule.get("origin") == "AI_FALLBACK"
+        )
 
         item = {
             "banca": banca,
@@ -180,6 +196,7 @@ class PdfImportService:
             "regole_valide": len(rules_ok),
             "regole_errori": len(rules_error),
             "regole_commerciali": commercial_count,
+            "regole_commerciali_ai": ai_commercial_count,
             "warning_commerciali": commercial_warning_count,
             "database": database_path,
             "errori": errors_path,
