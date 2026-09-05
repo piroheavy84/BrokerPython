@@ -25,27 +25,55 @@ class ImportDiagnosticService:
                 return (1, str(value))
         return sorted(values, key=key)
 
+    def _finality_values(self, rule):
+        value = rule.get("finalita")
+        if isinstance(value, list):
+            return [str(item) for item in value if item]
+        if value:
+            return [str(value)]
+        return ["MANCANTE"]
+
+    def _rate_label(self, rule):
+        value = rule.get("tasso")
+        if isinstance(value, dict):
+            return str(value.get("descrizione") or value.get("tipo") or "MANCANTE")
+        return str(value or "MANCANTE")
+
+    def _listino_label(self, rule):
+        return str(rule.get("tipo_listino") or "NON_CLASSIFICATO").upper()
+
+    def _ratio_label(self, rule):
+        condition = rule.get("condition") or {}
+        ratio_type = str(condition.get("type") or "LTV").upper()
+        maximum = condition.get("max_percent")
+        if maximum is None:
+            maximum = rule.get("ltv_max")
+        return f"{ratio_type} <= {maximum}%" if maximum is not None else f"{ratio_type} MANCANTE"
+
     def build(self, banca):
         rules, path = self._load_rules(banca)
         by_page = defaultdict(list)
         finalita = Counter()
         tassi = Counter()
-        ltv = Counter()
+        ratios = Counter()
+        listini = Counter()
         anomalie = []
 
         for rule in rules:
             page = rule.get("pagina")
             by_page[page].append(rule)
-            finalita[str(rule.get("finalita") or "MANCANTE")] += 1
-            tassi[str(rule.get("tasso") or "MANCANTE")] += 1
-            ltv[str(rule.get("ltv_max") if rule.get("ltv_max") is not None else "MANCANTE")] += 1
+            for finalita_value in self._finality_values(rule):
+                finalita[finalita_value] += 1
+            tassi[self._rate_label(rule)] += 1
+            ratios[self._ratio_label(rule)] += 1
+            listini[self._listino_label(rule)] += 1
 
             if not rule.get("finalita"):
                 anomalie.append({"tipo": "FINALITA_MANCANTE", "pagina": page, "id": rule.get("id")})
             if not rule.get("tasso"):
                 anomalie.append({"tipo": "TASSO_MANCANTE", "pagina": page, "id": rule.get("id")})
             if rule.get("ltv_max") is None:
-                anomalie.append({"tipo": "LTV_MANCANTE", "pagina": page, "id": rule.get("id")})
+                anomalie.append({"tipo": "RAPPORTO_MANCANTE", "pagina": page, "id": rule.get("id")})
             if rule.get("durata_min") is None or rule.get("durata_max") is None:
                 anomalie.append({"tipo": "DURATA_MANCANTE", "pagina": page, "id": rule.get("id")})
             if not rule.get("spread"):
@@ -54,40 +82,39 @@ class ImportDiagnosticService:
         pages = []
         for page in self._sort_values(by_page.keys()):
             page_rules = by_page[page]
-            page_finalita = Counter(str(r.get("finalita") or "MANCANTE") for r in page_rules)
-            page_tassi = Counter(str(r.get("tasso") or "MANCANTE") for r in page_rules)
+            page_finalita = Counter()
+            for rule in page_rules:
+                for value in self._finality_values(rule):
+                    page_finalita[value] += 1
+            page_tassi = Counter(self._rate_label(r) for r in page_rules)
+            page_ratios = Counter(self._ratio_label(r) for r in page_rules)
+            page_listini = Counter(self._listino_label(r) for r in page_rules)
             durations = sorted({
                 (r.get("durata_min"), r.get("durata_max"))
                 for r in page_rules
                 if r.get("durata_min") is not None and r.get("durata_max") is not None
             })
-            page_ltv = self._sort_values({
-                r.get("ltv_max") for r in page_rules if r.get("ltv_max") is not None
-            })
             pages.append({
                 "pagina": page,
                 "numero_regole": len(page_rules),
+                "tipo_listino": dict(page_listini),
                 "finalita": dict(page_finalita),
                 "tassi": dict(page_tassi),
-                "durate": [
-                    {"da": minimum, "a": maximum}
-                    for minimum, maximum in durations
-                ],
-                "ltv_ltc": page_ltv,
+                "durate": [{"da": a, "a": b} for a, b in durations],
+                "rapporti": dict(page_ratios),
                 "spread_distinti": self._sort_values({
                     str(r.get("spread")) for r in page_rules if r.get("spread")
                 }),
             })
 
-        # Le pagine senza regole sono importanti quanto quelle con regole:
-        # evidenziano note/sconti/retrocessioni che non devono diventare prodotti.
         return {
             "database": path,
             "numero_regole": len(rules),
             "pagine_con_regole": [row["pagina"] for row in pages],
+            "tipo_listino": dict(listini),
             "finalita": dict(finalita),
             "tassi": dict(tassi),
-            "ltv_ltc": dict(ltv),
+            "rapporti": dict(ratios),
             "per_pagina": pages,
             "anomalie": anomalie[:200],
             "numero_anomalie": len(anomalie),
