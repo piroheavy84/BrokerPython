@@ -165,8 +165,8 @@ class PdfImportService:
         rules_ok = []
         rules_error = []
 
-        # Primo passaggio: parser legacy. Se produce regole, il comportamento
-        # esistente resta invariato (regressione zero per banche già supportate).
+        # Primo passaggio: parser legacy. Rimane invariato per i documenti
+        # che non espongono vere tabelle PDF strutturate.
         for pagina in documento:
 
             model = self.analyzer.analyze(
@@ -203,15 +203,15 @@ class PdfImportService:
                             }
                         )
 
-        # Secondo passaggio: solo se il parser legacy non ha prodotto alcuna
-        # regola, proviamo le vere tabelle PDF (Tipo tasso + Durata + LTV/LTC).
-        # Non c'è alcun controllo sul nome banca.
-        if len(rules_ok) == 0:
-            fallback_rules = self.structured_table_parser.parse(pdf_path)
-            fallback_ok = []
-            fallback_errors = []
+        # Se il PDF contiene vere tabelle prodotto con intestazioni strutturate
+        # (Tipo tasso + Durata + LTV/LTC), il parser tabellare è più fedele del
+        # parser a righe e diventa la fonte autorevole. Non dipende dal nome banca.
+        structured_rules = self.structured_table_parser.parse(pdf_path)
+        if structured_rules:
+            structured_ok = []
+            structured_errors = []
 
-            for rule in fallback_rules:
+            for rule in structured_rules:
                 rule, errori = self._decorate_and_validate_rule(
                     rule=rule,
                     banca=banca,
@@ -221,20 +221,18 @@ class PdfImportService:
                 )
 
                 if len(errori) == 0:
-                    fallback_ok.append(rule)
+                    structured_ok.append(rule)
                 else:
-                    fallback_errors.append(
+                    structured_errors.append(
                         {
                             "rule": rule,
                             "errori": errori
                         }
                     )
 
-            # Se il fallback ha davvero riconosciuto un listino, sostituisce
-            # l'eventuale rumore/errori del primo passaggio.
-            if fallback_ok:
-                rules_ok = fallback_ok
-                rules_error = fallback_errors
+            if structured_ok:
+                rules_ok = structured_ok
+                rules_error = structured_errors
 
         page_knowledge = self._build_page_knowledge(
             documento,
