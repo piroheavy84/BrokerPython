@@ -1596,11 +1596,22 @@ def prodotto_to_json(
 
         score = 0
 
+    # Verifica definitiva: rapporto rata/reddito e sussistenza devono usare
+    # la rata FINALE, dopo tutte le scontistiche commerciali.
     verifica_manual_banca = _verifica_parametri_manual_banca(
         p.banca,
         request,
         rata
     )
+
+    final_residual = (
+        verifica_manual_banca
+        .get("dettagli", {})
+        .get("sussistenza", {})
+        .get("reddito_residuo")
+    )
+    if commercial_policy and final_residual is not None:
+        commercial_discount_detail["reddito_residuo"] = final_residual
 
     for motivo in verifica_manual_banca.get("motivi", []):
         if motivo not in warnings:

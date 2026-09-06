@@ -347,9 +347,19 @@ class BrokerEngine:
         return self.finalita_normalizer.match(getattr(richiesta, "finalita", ""), rule.get("finalita", []))
 
     def _get_tipo_tasso(self, rule):
-        if isinstance(rule["tasso"], dict):
-            return rule["tasso"].get("tipo", "")
-        return rule["tasso"]
+        tasso = rule.get("tasso", "")
+        if isinstance(tasso, dict):
+            tipo = str(tasso.get("tipo") or "").strip()
+            descrizione = str(tasso.get("descrizione") or "").strip()
+            descrizione_upper = descrizione.upper()
+            if descrizione and (
+                "RINEGOZIABILE" in descrizione_upper
+                or descrizione_upper.startswith("FISSO 5")
+                or descrizione_upper.startswith("FISSO 10")
+            ):
+                return descrizione
+            return tipo or descrizione
+        return tasso
 
     def _match_tasso(self, tipo_tasso_prodotto, tipo_tasso_richiesto):
         prodotto = str(tipo_tasso_prodotto).upper()
