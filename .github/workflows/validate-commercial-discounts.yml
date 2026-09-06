@@ -1,0 +1,37 @@
+name: Validate commercial discounts
+
+on:
+  push:
+    branches:
+      - fix/multibanca-product-parser
+    paths:
+      - tools/validate_commercial_discounts_marker.txt
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/multibanca-product-parser
+      - name: Compile Python sources
+        run: python -m py_compile api.py services/commercial_discount_calculator.py
+      - name: Validate ING discount math
+        run: |
+          PYTHONPATH=. python - <<'PY'
+          from services.commercial_discount_calculator import calculate_commercial_discounts
+          rules = [
+              {"discount_type": "CCA_COMPLETO", "percent": 0.30},
+              {"discount_type": "CCA_ADDEBITO_RATA_020", "percent": 0.20},
+              {"discount_type": "MRI_WHITE_LABEL", "percent": 0.25},
+              {"discount_type": "GREEN", "percent": 0.20},
+          ]
+          r = calculate_commercial_discounts(
+              1.55, rules, classe_energetica="A3",
+              reddito_residuo=1800, finalita="ACQUISTO"
+          )
+          assert r["sconto_totale_percentuale"] == 0.95, r
+          assert r["spread_finale"] == 0.60, r
+          assert [x["percentuale"] for x in r["sconti_applicati"]] == [0.30, 0.20, 0.25, 0.20], r
+          print(r)
+          PY
