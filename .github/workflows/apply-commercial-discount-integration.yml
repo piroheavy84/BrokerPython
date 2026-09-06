@@ -1,0 +1,33 @@
+name: Apply commercial discount integration
+
+on:
+  push:
+    branches:
+      - fix/multibanca-product-parser
+    paths:
+      - tools/apply_commercial_discount_integration.py
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/multibanca-product-parser
+          fetch-depth: 0
+      - name: Apply integration patch
+        run: python tools/apply_commercial_discount_integration.py
+      - name: Commit generated changes
+        run: |
+          if git diff --quiet -- api.py; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add api.py
+          git commit -m "Integra sconti commerciali nel calcolo risultati"
+          git push origin HEAD:fix/multibanca-product-parser
