@@ -60,7 +60,7 @@ def calculate_commercial_discounts(
     - CCA completo: -0,30 sempre;
     - addebito rata su conto: -0,20 sempre;
     - White Label/MRI: -0,25 solo con reddito residuo > 1.500 euro;
-    - Green: -0,25 per classi energetiche A o B.
+    - Green: -0,20 (20 bps) per acquisto di immobili in classe B, A o superiore.
 
     I valori vengono prima letti dalle regole del PDF; i fallback servono solo
     per la policy esplicitamente configurata e sono visibili nel dettaglio.
@@ -89,7 +89,7 @@ def calculate_commercial_discounts(
     green = _find_rule(rules, "GREEN")
     energy = _energy(classe_energetica)
     if energy.startswith("A") or energy == "B":
-        applied.append(_detail(green, 0.25, "Green classe A/B", f"Classe energetica {energy}"))
+        applied.append(_detail(green, 0.20, "Green classe A/B", f"Classe energetica {energy}"))
 
     total = round(sum(_num(row.get("percentuale")) for row in applied), 4)
     final = max(0.0, round(base - total, 4))
