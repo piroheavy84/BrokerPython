@@ -21,3 +21,5 @@ if old not in text:
     raise SystemExit('Metodo _get_tipo_tasso non trovato')
 text = text.replace(old, new, 1)
 engine.write_text(text, encoding='utf-8')
+
+# trigger-v2
