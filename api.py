@@ -29,6 +29,10 @@ from services.technical_report_service import TechnicalReportService
 from services.pdf_preview_service import PdfPreviewService
 from services.bank_memory_confirm_service import BankMemoryConfirmService
 from services.bank_eligibility_service import BankEligibilityService
+from services.commercial_discount_calculator import (
+    calculate_commercial_discounts,
+    has_cca_discount_policy,
+)
 from services.pdf_document_reader import PdfDocumentReader
 from services.pdf_gap_analyzer_service import PdfGapAnalyzerService
 from services.page_analyzer import PageAnalyzer
@@ -1269,15 +1273,65 @@ def _verifica_parametri_manual_banca(
     return {"ok": len(motivi) == 0, "motivi": motivi, "dettagli": dettagli, "memory": {"calcolo_debito": metodo or None, "rapporto_rata_reddito_percentuale": rapporto, "eta_massima_finanziabile": eta_massima, "anni_residenza_italia_straniero": anni_minimi, "sussistenza_configurata": suss_config}}
 
 
+
+
+def _collect_commercial_discount_rules(banca):
+    rules = []
+    for page in load_bank_knowledge(banca):
+        if not isinstance(page, dict):
+            continue
+        page_number = page.get("page", page.get("pagina"))
+        commercial_rows = (
+            page.get("commercial_rules")
+            or page.get("regole_commerciali")
+            or []
+        )
+        for row in commercial_rows:
+            if not isinstance(row, dict):
+                continue
+            if str(row.get("rule_type") or "").upper() != "DISCOUNT":
+                continue
+            item = dict(row)
+            item.setdefault("page", page_number)
+            rules.append(item)
+    return rules
+
+
+def _commercial_summary(detail):
+    rows = []
+    for item in detail.get("sconti_applicati", []) or []:
+        try:
+            pct = float(item.get("percentuale") or 0.0)
+        except Exception:
+            pct = 0.0
+        if pct <= 0:
+            continue
+        rows.append(f"{item.get('label') or 'Sconto'} -{pct:.2f}%")
+    if not rows:
+        return ""
+    return "Sconti applicati: " + "; ".join(rows)
+
 def prodotto_to_json(
     p,
     request,
     practice
 ):
 
-    spread = spread_to_float(
+    spread_originale = spread_to_float(
         p.spread
     )
+
+    commercial_rules = _collect_commercial_discount_rules(p.banca)
+    commercial_policy = has_cca_discount_policy(commercial_rules)
+
+    # Il BrokerEngine può avere già applicato il solo Green commerciale.
+    # Per una policy CCA cumulativa ripartiamo dallo spread precedente al Green,
+    # così ogni sconto viene applicato una sola volta.
+    commercial_base_spread = spread_originale
+    if commercial_policy and getattr(p, "green_sconto", None):
+        old_base = getattr(p, "spread_base", None)
+        if old_base not in (None, ""):
+            commercial_base_spread = spread_to_float(old_base)
 
     tasso_esplicito = getattr(
         p,
@@ -1298,35 +1352,103 @@ def prodotto_to_json(
     )
 
     if tasso_esplicito:
-
         indice = 0
-
-        tasso_finito = percent_to_float(
-            tasso_finito_pdf
-        )
-
+        base_tasso_esplicito = percent_to_float(tasso_finito_pdf)
+        spread = spread_originale
+        tasso_finito = base_tasso_esplicito
     else:
-
         indice = calcola_indice_automatico(
             p,
             request
         )
 
         if indice == 0 and request.indice_mercato > 0:
-
             indice = request.indice_mercato
 
+        spread = commercial_base_spread if commercial_policy else spread_originale
         tasso_finito = indice + spread
+        indice_riferimento = get_indice_riferimento(p)
 
-        indice_riferimento = get_indice_riferimento(
-            p
+    commercial_discount_detail = {
+        "spread_base": spread,
+        "sconti_applicati": [],
+        "sconto_totale_percentuale": 0.0,
+        "spread_finale": spread,
+        "reddito_residuo": None,
+        "soglia_reddito_residuo": 1500.0,
+    }
+
+    if commercial_policy:
+        # Prima passata: applica gli sconti non dipendenti dal residuo.
+        stage_one = calculate_commercial_discounts(
+            commercial_base_spread,
+            commercial_rules,
+            classe_energetica=request.classe_energetica,
+            reddito_residuo=None,
+            finalita=request.finalita,
         )
+
+        if tasso_esplicito:
+            tasso_finito = max(
+                0.0,
+                base_tasso_esplicito - stage_one.get("sconto_totale_percentuale", 0.0)
+            )
+            spread = max(
+                0.0,
+                spread_originale - stage_one.get("sconto_totale_percentuale", 0.0)
+            )
+        else:
+            spread = stage_one.get("spread_finale", commercial_base_spread)
+            tasso_finito = indice + spread
+
+        rata_stage_one = calcola_rata(
+            request.importo,
+            request.durata,
+            tasso_finito
+        )
+        verifica_stage_one = _verifica_parametri_manual_banca(
+            p.banca,
+            request,
+            rata_stage_one
+        )
+        reddito_residuo = (
+            verifica_stage_one
+            .get("dettagli", {})
+            .get("sussistenza", {})
+            .get("reddito_residuo")
+        )
+
+        # Seconda passata: se dopo gli sconti base il residuo supera 1.500 euro,
+        # entra anche la White Label/MRI -0,25.
+        commercial_discount_detail = calculate_commercial_discounts(
+            commercial_base_spread,
+            commercial_rules,
+            classe_energetica=request.classe_energetica,
+            reddito_residuo=reddito_residuo,
+            finalita=request.finalita,
+        )
+
+        if tasso_esplicito:
+            total_discount = commercial_discount_detail.get(
+                "sconto_totale_percentuale",
+                0.0
+            )
+            tasso_finito = max(0.0, base_tasso_esplicito - total_discount)
+            spread = max(0.0, spread_originale - total_discount)
+        else:
+            spread = commercial_discount_detail.get(
+                "spread_finale",
+                commercial_base_spread
+            )
+            tasso_finito = indice + spread
 
     rata = calcola_rata(
         request.importo,
         request.durata,
         tasso_finito
     )
+
+    commercial_summary = _commercial_summary(commercial_discount_detail)
 
     if is_surroga_finalita(getattr(request, "finalita", "")) or is_surroga_finalita(getattr(p, "finalita", "")):
         istruttoria_detail = {
@@ -1474,11 +1596,22 @@ def prodotto_to_json(
 
         score = 0
 
+    # Verifica definitiva: rapporto rata/reddito e sussistenza devono usare
+    # la rata FINALE, dopo tutte le scontistiche commerciali.
     verifica_manual_banca = _verifica_parametri_manual_banca(
         p.banca,
         request,
         rata
     )
+
+    final_residual = (
+        verifica_manual_banca
+        .get("dettagli", {})
+        .get("sussistenza", {})
+        .get("reddito_residuo")
+    )
+    if commercial_policy and final_residual is not None:
+        commercial_discount_detail["reddito_residuo"] = final_residual
 
     for motivo in verifica_manual_banca.get("motivi", []):
         if motivo not in warnings:
@@ -1502,7 +1635,13 @@ def prodotto_to_json(
             f"con stipule entro il {getattr(p, 'stipula_entro', '')}"
         ),
         "spread": spread,
-        "spread_label": p.spread,
+        "spread_label": f"{spread:.2f}%",
+        "sconti_applicati": commercial_discount_detail.get("sconti_applicati", []),
+        "sconto_totale_percentuale": commercial_discount_detail.get("sconto_totale_percentuale", 0.0),
+        "spread_base_commerciale": commercial_discount_detail.get("spread_base") if commercial_policy else None,
+        "spread_finale": spread,
+        "reddito_residuo_sconti": commercial_discount_detail.get("reddito_residuo"),
+        "soglia_reddito_residuo_sconti": commercial_discount_detail.get("soglia_reddito_residuo", 1500.0),
         "indice": indice,
         "indice_riferimento": indice_riferimento,
         "tasso_esplicito": tasso_esplicito,
@@ -1575,7 +1714,7 @@ def prodotto_to_json(
         ),
         "verifica_parametri_banca": verifica_manual_banca.get("dettagli", {}),
         "parametri_manual_banca": verifica_manual_banca.get("memory", {}),
-        "prodotto_speciale": getattr(p, "prodotto_speciale", False),
+        "prodotto_speciale": bool(commercial_policy) or getattr(p, "prodotto_speciale", False),
         "convenzione": getattr(p, "convenzione", None),
         "valore_perizia": getattr(p, "valore_perizia", None),
         "massimo_finanziabile_ltc": getattr(p, "massimo_finanziabile_ltc", None),
@@ -1589,9 +1728,21 @@ def prodotto_to_json(
         "ltc_reddito_operatore": getattr(p, "ltc_reddito_operatore", None),
         "ltc_reddito_minimo": getattr(p, "ltc_reddito_minimo", None),
         "ltc_reddito_note": getattr(p, "ltc_reddito_note", None),
-        "spread_base": getattr(p, "spread_base", None),
-        "spread_delta": getattr(p, "spread_delta", None),
-        "motivo_prodotto_speciale": getattr(p, "motivo_prodotto_speciale", None),
+        "spread_base": (
+            commercial_discount_detail.get("spread_base")
+            if commercial_policy
+            else getattr(p, "spread_base", None)
+        ),
+        "spread_delta": (
+            -float(commercial_discount_detail.get("sconto_totale_percentuale", 0.0) or 0.0)
+            if commercial_policy
+            else getattr(p, "spread_delta", None)
+        ),
+        "motivo_prodotto_speciale": (
+            commercial_summary
+            if commercial_policy and commercial_summary
+            else getattr(p, "motivo_prodotto_speciale", None)
+        ),
         "promozione": getattr(p, "promozione", None),
         "green_tipo": getattr(p, "green_tipo", None),
         "green_sconto": getattr(p, "green_sconto", None),
